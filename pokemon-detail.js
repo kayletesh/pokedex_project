@@ -1,4 +1,4 @@
-let currentpokemonID = null;
+let currentPokemonID = null;
 
 document.addEventListener("DOMContentLoaded", () => {
   const MAX_POKEMON = 151;
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return (window.location.href = "./index.html");
   }
 
-  currentpokemonID = id;
+  currentPokemonID = id;
   loadPokemon(id);
 });
 
@@ -29,14 +29,14 @@ async function loadPokemon(id) {
     );
     abilitiesWrapper.innerHTML = "";
 
-    if (currentpokemonID === id) {
+    if (currentPokemonID === id) {
       displayPokemonDetails(pokemon);
       const flavorText = getEnglishFlavorText(pokemonSpecies);
-      document.querySelector(".body3-Font.pokemon-description").textContent =
+      document.querySelector(".body3-fonts.pokemon-description").textContent =
         flavorText;
 
-      const [leftArrow, rightArrow] = [":#leftArrow", "#rightArrow"].map(
-        (sel) => document.querySelector(sel),
+      const [leftArrow, rightArrow] = ["#leftArrow", "#rightArrow"].map((sel) =>
+        document.querySelector(sel),
       );
       leftArrow.removeEventListener("click", navigatePokemon);
       rightArrow.removeEventListener("click", navigatePokemon);
@@ -62,7 +62,7 @@ async function loadPokemon(id) {
 }
 
 async function navigatePokemon(id) {
-  currentpokemonID = id;
+  currentPokemonID = id;
   await loadPokemon(id);
 }
 const typeColors = {
@@ -87,17 +87,17 @@ const typeColors = {
 };
 
 function setElementStyles(elements, cssProperty, value) {
-  elements.foreach((element) => {
+  elements.forEach((element) => {
     element.style[cssProperty] = value;
   });
 }
 
 function rgbaFromHex(hexColor) {
   return [
-    parseINT(hexColor.slice(1, 3), 16),
-    parseINT(hexColor.slice(3, 5), 16),
-    parseINT(hexColor.slice(5, 7), 16),
-  ].join(", ");
+    parseInt(hexColor.slice(1, 3), 16),
+    parseInt(hexColor.slice(3, 5), 16),
+    parseInt(hexColor.slice(5, 7), 16),
+  ].join(",");
 }
 
 function setTypeBackgroundColor(pokemon) {
@@ -163,16 +163,17 @@ function displayPokemonDetails(pokemon) {
 
   document.querySelector("title").textContent = capitolizePokemonName;
 
-  const detailMainElement = document.querySelector("detail-main");
+  const detailMainElement = document.querySelector(".detail-main");
   detailMainElement.classList.add(name.toLowerCase());
 
-  document.querySelector("name-wrap .name").textContent = capitolizePokemonName;
+  document.querySelector(".name-wrap .name").textContent =
+    capitolizePokemonName;
   document.querySelector(".pokemon-id-wrap .body2-fonts").textContent =
     `#${String(id).padStart(3, "0")}`;
 
-  const imageElement = document.querySelector("detail-img-wrapper img");
-  imageElement.src = `https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/other/dream-world/${id}.svg`;
-
+  const imageElement = document.querySelector(".detail-img-wrapper img");
+  imageElement.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
+  imageElement.alt = name;
   const typeWrapper = document.querySelector(".power-wrapper");
   typeWrapper.innerHTML = "";
   types.forEach(({ type }) => {
@@ -188,10 +189,10 @@ function displayPokemonDetails(pokemon) {
 
   document.querySelector(
     ".pokemon-detail-wrap .pokemon-detail p.body3-fonts.height",
-  ).textContent = `${height / 10} cm`;
+  ).textContent = `${height / 10} m`;
 
   const abilitiesWrapper = document.querySelector(
-    ".pokemon-detail-wrap .pokemon-detail-move",
+    ".pokemon-detail-wrap .pokemon-detail.move",
   );
   abilities.forEach(({ ability }) => {
     createAndAppendElement(abilitiesWrapper, "p", {
@@ -200,7 +201,7 @@ function displayPokemonDetails(pokemon) {
     });
   });
 
-  const statsWrapper = document.querySelector("stats-wrapper");
+  const statsWrapper = document.querySelector(".stats-wrapper");
   statsWrapper.innerHTML = "";
 
   const statNameMapping = {
@@ -239,5 +240,5 @@ function getEnglishFlavorText(pokemonSpecies) {
       return flavor;
     }
   }
+  return "";
 }
-return "";
