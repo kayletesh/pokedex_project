@@ -28,6 +28,10 @@
   --drop-shadow-inner: 0px 1px 3px 1px rgba(0, 0, 0, 0.25) inset;
 }
 
+* {
+  /* border: 2px solid blue; */
+}
+
 h2,
 h3,
 h4,
@@ -529,4 +533,131 @@ div#not-found-message {
   height: max-content;
   border-color: transparent;
   background-color: transparent;
+}
+
+/* Css for home page*/
+* {
+  /* border: 2px solid green; */
+}
+.home-body {
+  display: flex;
+  justify-content: center;
+  background-color: #ede8d0;
+  display: flex;
+  justify-content: center;
+}
+.pokeball-content-wrapper {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.homepage-pokeball {
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--identity-primary) 0% 47%,
+    black 47% 53%,
+    white 53% 100%
+  );
+  border: 10px solid black;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.pokeball-top {
+  align-self: flex-start;
+  margin-top: 2rem;
+  font-weight: bolder;
+  font-size: 40px;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+}
+.pokeball-footer {
+  align-self: flex-end;
+  margin-bottom: 2rem;
+
+  display: flex;
+  justify-content: center;
+}
+
+.pokeball-footer p {
+  color: #fff;
+  font-weight: bolder;
+  font-size: 16px;
+  font-style: italic;
+  text-align: center;
+  padding: 15px 50px;
+  border-radius: 30px;
+  box-shadow: inset 0px 0px 10px 10px rgba(0, 0, 0, 0.25);
+  background-color: var(--identity-primary);
+}
+
+.pokeball-top p {
+  background-color: #fff;
+  text-align: center;
+  padding: 5px 40px;
+  border-radius: 30px;
+  box-shadow: inset 0px 0px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+.button-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+  height: 100%;
+}
+
+.button-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.button-wrap.inner {
+  gap: 100px;
+}
+.button-wrap.middle {
+  gap: 300px;
+}
+
+.center-ball-outer {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-ball-inner {
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+
+.button-wrap.outer {
+  gap: 200px;
+  align-items: center;
+}
+button {
+  border-radius: 30px;
+  /* box-shadow: inset 0px 0px 10px 10px rgba(0, 0, 0, 0.25); */
+  height: 55px;
+  width: 250px;
 }
