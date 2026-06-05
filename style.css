@@ -638,3 +638,11 @@ div#not-found-message {
   border-radius: 100%;
   position: absolute;
 }
+
+/* css for whos that pokemon game */
+
+.wtp .pokemon-svg {
+  width: 50%;
+  float: right;
+  filter: brightness(0);
+}
