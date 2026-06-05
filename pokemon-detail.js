@@ -1,7 +1,7 @@
 let currentPokemonID = null;
 
 document.addEventListener("DOMContentLoaded", () => {
-  const MAX_POKEMON = 2000;
+  const MAX_POKEMON = 300;
   const pokemonID = new URLSearchParams(window.location.search).get("id");
   const id = parseInt(pokemonID, 10);
 
@@ -46,7 +46,7 @@ async function loadPokemon(id) {
           navigatePokemon(id - 1);
         });
       }
-      if (id !== 2000) {
+      if (id !== 300) {
         rightArrow.addEventListener("click", () => {
           navigatePokemon(id + 1);
         });
