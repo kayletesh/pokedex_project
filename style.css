@@ -643,6 +643,6 @@ div#not-found-message {
 
 .wtp .pokemon-svg {
   width: 50%;
-  float: right;
+
   filter: brightness(0);
 }

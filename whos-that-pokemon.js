@@ -41,6 +41,10 @@ play.addEventListener("click", () => {
     const genStart = 152;
     const genEnd = 252;
     buildPokemonElement(genStart, genEnd);
+  } else if (selectedGen === "gen-all") {
+    const genStart = 1;
+    const genEnd = 252;
+    buildPokemonElement(genStart, genEnd);
   }
 });
 
