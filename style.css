@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 :root {
   --identity-primary: #dc0a2d;
 
@@ -26,10 +27,6 @@
   --drop-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
   --drop-shadow-hover: 0px 3px 12px 3px rgba(0, 0, 0, 0.2);
   --drop-shadow-inner: 0px 1px 3px 1px rgba(0, 0, 0, 0.25) inset;
-}
-
-* {
-  /* border: 2px solid blue; */
 }
 
 h2,
@@ -537,7 +534,7 @@ div#not-found-message {
 
 /* Css for home page*/
 * {
-  /* border: 2px solid green; */
+  font-family: "Roboto", sans-serif;
 }
 .home-body {
   display: flex;
@@ -565,22 +562,18 @@ div#not-found-message {
   border-radius: 100%;
   background: linear-gradient(
     to bottom,
-    var(--identity-primary) 0% 47%,
-    black 47% 53%,
+    var(--identity-primary) 0% 48%,
+    black 48% 53%,
     white 53% 100%
   );
-  border: 10px solid black;
+  border: 20px solid black;
   box-shadow:
     rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .pokeball-top {
-  align-self: flex-start;
-  margin-top: 2rem;
-  font-weight: bolder;
   font-size: 40px;
-  font-style: italic;
   display: flex;
   justify-content: center;
 }
@@ -593,15 +586,11 @@ div#not-found-message {
 }
 
 .pokeball-footer p {
-  color: #fff;
   font-weight: bolder;
   font-size: 16px;
   font-style: italic;
   text-align: center;
-  padding: 15px 50px;
-  border-radius: 30px;
-  box-shadow: inset 0px 0px 10px 10px rgba(0, 0, 0, 0.25);
-  background-color: var(--identity-primary);
+  margin-bottom: 50px;
 }
 
 .pokeball-top p {
@@ -614,50 +603,38 @@ div#not-found-message {
 
 .button-flex-container {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  gap: 50px;
+  gap: 40px;
   align-items: center;
   height: 100%;
+  gap: 100px;
 }
-
+.button-flex-container button {
+  font-weight: 900;
+  font-size: 18px;
+  border-radius: 50px;
+  border: 10px solid black;
+  height: 60px;
+  width: 250px;
+}
 .button-wrap {
   display: flex;
   justify-content: center;
 }
 
 .button-wrap.inner {
-  gap: 100px;
+  gap: 60px;
 }
 .button-wrap.middle {
-  gap: 300px;
+  gap: 350px;
 }
 
-.center-ball-outer {
+.center-ball {
+  border: 30px solid black;
+  background-color: #fff;
   width: 150px;
   height: 150px;
   border-radius: 100%;
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.center-ball-inner {
-  background-color: #fff;
-  width: 100px;
-  height: 100px;
-  border-radius: 100%;
-}
-
-.button-wrap.outer {
-  gap: 200px;
-  align-items: center;
-}
-button {
-  border-radius: 30px;
-  /* box-shadow: inset 0px 0px 10px 10px rgba(0, 0, 0, 0.25); */
-  height: 55px;
-  width: 250px;
+  position: absolute;
 }
