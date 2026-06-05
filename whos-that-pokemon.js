@@ -19,8 +19,22 @@ function randomID(min, max) {
   return Math.floor(Math.random() * (maxID - minID) + minID);
 }
 
-// GEN ONE
-// getPokemonData(randomID(1, 151));
+const play = document.querySelector("#play-button");
+play.addEventListener("click", () => {
+  const dropdown = document.querySelector("#gen-selector");
+  const selectedGen = dropdown.value;
+  console.log(selectedGen);
 
+  if (dropdown.value === "gen-one") {
+    getPokemonData(randomID(1, 151));
+  } else if (dropdown.value === "gen-two") {
+    getPokemonData(randomID(152, 252));
+  }
+});
+
+// GEN ONE
+// const genOne = getPokemonData(randomID(1, 151));
 // GEN TWO
-// getPokemonData(randomID(152, 252));
+// const genTwo = getPokemonData(randomID(152, 252));
+
+// if dropdown.value = gen-one, then return getPokemonData(randomID(1, 151))
