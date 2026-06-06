@@ -1,4 +1,4 @@
-const MAX_POKEMON = 300;
+const MAX_POKEMON = 1500;
 const listWrapper = document.querySelector(".list-wrapper");
 const searchInput = document.querySelector("#search-input");
 const numberFilter = document.querySelector("#number");

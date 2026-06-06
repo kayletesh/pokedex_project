@@ -642,7 +642,8 @@ div#not-found-message {
 /* css for whos that pokemon game */
 
 .wtp .pokemon-svg {
-  width: 50%;
+  aspect-ratio: 1/1;
+  width: 400px;
 
   filter: brightness(0);
 }

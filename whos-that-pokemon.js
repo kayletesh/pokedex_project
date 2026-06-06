@@ -13,8 +13,15 @@ async function getPokemonData(id) {
 }
 
 function displayPokemonSVG(currentPokemon) {
-  document.querySelector("#pokemon-svg img").src =
-    `${currentPokemon.sprites.other.dream_world.front_default}`;
+  const pokeSVG = currentPokemon.sprites.other.dream_world.front_default;
+
+  if (pokeSVG) {
+    document.querySelector("#pokemon-svg img").src = pokeSVG;
+  } else if (pokeSVG) {
+    document.querySelector("#pokemon-svg img").src =
+      currentPokemon.sprites.front_default;
+    console.log("backup img");
+  }
 }
 
 function randomID(min, max) {
@@ -26,33 +33,35 @@ const play = document.querySelector("#play-button");
 
 async function buildPokemonElement(min, max) {
   const currentPokemon = await getPokemonData(randomID(min, max));
+  console.log(currentPokemon);
   displayPokemonSVG(currentPokemon);
+  play.disabled = false;
   play.innerText = "PLAY AGAIN";
 }
 
+const pokemonGens = {
+  "gen-all": [1, 1025],
+  "gen-one": [1, 151],
+  "gen-two": [152, 251],
+  "gen-three": [252, 386],
+  "gen-four": [387, 493],
+  "gen-five": [494, 649],
+  "gen-six": [650, 721],
+  "gen-seven": [722, 809],
+  "gen-eight": [810, 905],
+  "gen-nine": [906, 1025],
+};
+
 play.addEventListener("click", () => {
+  play.disabled = true;
   const dropdown = document.querySelector("#gen-selector");
   const selectedGen = dropdown.value;
-  if (selectedGen === "gen-one") {
-    const genStart = 1;
-    const genEnd = 151;
-    buildPokemonElement(genStart, genEnd);
-  } else if (selectedGen === "gen-two") {
-    const genStart = 152;
-    const genEnd = 252;
-    buildPokemonElement(genStart, genEnd);
-  } else if (selectedGen === "gen-all") {
-    const genStart = 1;
-    const genEnd = 252;
-    buildPokemonElement(genStart, genEnd);
-  }
+  //   let selectedGenRange;
+  buildPokemonElement(pokemonGens[selectedGen][0], pokemonGens[selectedGen][1]);
 });
 
-// GEN ONE
-// const genOne = getPokemonData(randomID(1, 151));
-// GEN TWO
-// const genTwo = getPokemonData(randomID(152, 252));
+// if result has no image, rerun function until image found.
 
-// create a function that creates an image
-// based on the id pulled from getPokemonData,
-// and displays it in div pokemon-svg
+// set the svg to a variable
+// check if it has a value
+// if it doesnt, set a back up or just display an error message
