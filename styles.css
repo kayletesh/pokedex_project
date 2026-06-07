@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 :root {
-  --identity-primary: #dc0a2d;
+  --identity-primary: #af0020;
+  --pika-yellow: #ffcd00;
   --grayscale-dark: #212121;
   --grayscale-medium: #666666;
   --grayscale-light: #e0e0e0;
@@ -10,15 +11,15 @@
 }
 
 * {
-  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .home-body {
   display: flex;
   justify-content: center;
   background-color: var(--beige-bg);
-  display: flex;
-  justify-content: center;
 }
 .pokeball-content-wrapper {
   height: 100%;
@@ -80,14 +81,14 @@
   gap: 40px;
   align-items: center;
   height: 100%;
-  gap: 100px;
+  gap: 80px;
 }
 .button-flex-container button {
   font-weight: 900;
   font-size: 18px;
   border-radius: 50px;
   border: 10px solid black;
-  height: 60px;
+  height: 75px;
   width: 250px;
 }
 .button-wrap {
@@ -105,8 +106,8 @@
 .center-ball {
   border: 30px solid black;
   background-color: #fff;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 100%;
   position: absolute;
   display: flex;
@@ -114,17 +115,63 @@
   align-items: center;
 }
 .center-ball button {
-  width: 130px;
-  height: 130px;
+  width: 85%;
+  height: 85%;
   border-radius: 100%;
   border: 4px solid black;
 }
 
 /* css for whos that pokemon game */
 
+body {
+  background-color: var(--beige-bg);
+}
+
+header {
+  background-color: var(--identity-primary);
+  display: flex;
+  padding: 15px;
+  width: 100%;
+}
+header img {
+  height: 90px;
+  margin-right: 50px;
+}
 .wtp .pokemon-svg {
   aspect-ratio: 1/1;
-  width: 400px;
 
   filter: brightness(0);
 }
+
+nav {
+  display: flex;
+  /* justify-content: space-evenly; */
+  align-items: flex-end;
+  margin-bottom: 15px;
+  gap: 25px;
+}
+nav a {
+  padding: 5px 5px;
+  font-weight: bold;
+  font-size: 22px;
+  color: var(--pika-yellow);
+}
+
+/* Block Element Modifier */
+/* 
+.header {}
+
+.header__img {
+
+}
+
+.header__nav__blue
+
+.header__nav-item
+.header__nav-item__selected
+
+header class="header">
+        <img class="header__img" src="./assets/pokemia-logo.png" alt="Pokemia logo" />
+        <h1 calss="header__title" aria-label="POKEMIA!"></h1>
+        <nav class="header__nav"></nav>
+      </header> */
