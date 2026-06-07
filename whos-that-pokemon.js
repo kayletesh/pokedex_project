@@ -17,7 +17,7 @@ function displayPokemonSVG(currentPokemon) {
 
   if (pokeSVG) {
     document.querySelector("#pokemon-svg img").src = pokeSVG;
-  } else if (pokeSVG) {
+  } else {
     document.querySelector("#pokemon-svg img").src =
       currentPokemon.sprites.front_default;
     console.log("backup img");
