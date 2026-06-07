@@ -23,24 +23,58 @@
         <a href="#">Variants</a>
       </nav>
     </header>
-    <main class="main-container">
-      <div class="dropdown-container">
-        <label for="gen-selector"></label>
-        <select name="generations" id="gen-selector">
-          <option value="gen-all">ALL GENERATIONS</option>
-          <option value="gen-one">ONE (KANTO)</option>
-          <option value="gen-two">TWO (JHOTO)</option>
-          <option value="gen-three">THREE (HOENN)</option>
-          <option value="gen-four">FOUR (SINNOH)</option>
-          <option value="gen-five">FIVE (UNOVA)</option>
-          <option value="gen-six">SIX (KALOS)</option>
-          <option value="gen-seven">SEVEN (ALOLA)</option>
-          <option value="gen-eight">EIGHT (GALAR)</option>
-          <option value="gen-nine">NINE (PALDEA)</option>
-        </select>
+    <main class="container">
+      <div class="wtp">
+        <h1 class="wtp__title">WHO'S THAT POKEMON</h1>
+        <div class="wtp__right">
+          <label for="gen-selector"></label>
+          <select name="generations" id="gen-selector" class="wtp__dropdown">
+            <option value="gen-all">ALL GENERATIONS</option>
+            <option value="gen-one">ONE (KANTO)</option>
+            <option value="gen-two">TWO (JHOTO)</option>
+            <option value="gen-three">THREE (HOENN)</option>
+            <option value="gen-four">FOUR (SINNOH)</option>
+            <option value="gen-five">FIVE (UNOVA)</option>
+            <option value="gen-six">SIX (KALOS)</option>
+            <option value="gen-seven">SEVEN (ALOLA)</option>
+            <option value="gen-eight">EIGHT (GALAR)</option>
+            <option value="gen-nine">NINE (PALDEA)</option>
+          </select>
+          <button class="btn-primary wtp__play-btn" id="play-button">
+            PLAY
+          </button>
+        </div>
       </div>
-      <div id="pokemon-svg"><img class="pokemon-svg" src="" alt="" /></div>
-      <button class="play-button" id="play-button">PLAY</button>
+      <div class="pokeball greatball">
+        <!-- img # link to greatballsvg -->
+        <img src="#" class="greatball--bg" />
+        <img class="greatball--svg" id="pokemon-svg" src="" alt="" />
+      </div>
+      <div class="greatball__input-box">
+        <input
+          type="text"
+          id="greatball-user-input"
+          name="pokemon-name"
+          class="greatball__input-box--input"
+          id="greatball-input"
+        />
+        <button class="btn-primary, btn-submit" id="greatball-submit-btn">
+          SUBMIT
+        </button>
+        <button class="wtp__skip-btn" id="wtp__skip-btn">SKIP</button>
+      </div>
+      <div class="greatball__bottom-bar">
+        <div>
+          <p>SCORE</p>
+          <p>#</p>
+        </div>
+        <div>
+          <p>STREAK</p>
+          <p>#</p>
+        </div>
+        <button class="btn-hint" id="greatball-btn-hint">need a hint?</button>
+      </div>
     </main>
+    <footer class="pokeball-footer"><p>Design by Kayle</p></footer>
   </body>
 </html>

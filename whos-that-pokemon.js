@@ -16,9 +16,9 @@ function displayPokemonSVG(currentPokemon) {
   const pokeSVG = currentPokemon.sprites.other.dream_world.front_default;
 
   if (pokeSVG) {
-    document.querySelector("#pokemon-svg img").src = pokeSVG;
+    document.querySelector("#pokemon-svg").src = pokeSVG;
   } else {
-    document.querySelector("#pokemon-svg img").src =
+    document.querySelector("#pokemon-svg").src =
       currentPokemon.sprites.front_default;
     console.log("backup img");
   }
