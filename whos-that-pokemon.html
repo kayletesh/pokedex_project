@@ -29,69 +29,77 @@
       <div class="wtp">
         <h1 class="wtp__title">WHO'S THAT<br /><span>POKEMON??</span></h1>
         <div class="wtp__right">
-          <p>Select a Generation</p>
-          <label for="gen-selector"></label>
-          <select
-            name="generations"
-            id="gen-selector"
-            class="wtp__dropdown btn-primary 
-          >
-            <option value="gen-all">Select a generation!</option>
-            <option value="gen-all">ALL GENERATIONS</option>
-            <option value="gen-one">ONE (KANTO)</option>
-            <option value="gen-two">TWO (JHOTO)</option>
-            <option value="gen-three">THREE (HOENN)</option>
-            <option value="gen-four">FOUR (SINNOH)</option>
-            <option value="gen-five">FIVE (UNOVA)</option>
-            <option value="gen-six">SIX (KALOS)</option>
-            <option value="gen-seven">SEVEN (ALOLA)</option>
-            <option value="gen-eight">EIGHT (GALAR)</option>
-            <option value="gen-nine">NINE (PALDEA)</option>
-          </select>
+          <div class="wtp__select-wrapper">
+            <p>Select a Generation</p>
+            <label for="gen-selector"></label>
+            <select
+              name="generations"
+              id="gen-selector"
+              class="wtp__dropdown btn-primary"
+            >
+              <!-- <option value="gen-all">Select a generation!</option> -->
+              <option value="gen-all">ALL GENERATIONS</option>
+              <option value="gen-one">ONE (KANTO)</option>
+              <option value="gen-two">TWO (JHOTO)</option>
+              <option value="gen-three">THREE (HOENN)</option>
+              <option value="gen-four">FOUR (SINNOH)</option>
+              <option value="gen-five">FIVE (UNOVA)</option>
+              <option value="gen-six">SIX (KALOS)</option>
+              <option value="gen-seven">SEVEN (ALOLA)</option>
+              <option value="gen-eight">EIGHT (GALAR)</option>
+              <option value="gen-nine">NINE (PALDEA)</option>
+            </select>
+          </div>
           <button
-            class="btn-primary wtp__play-btn wtp__btn--padding"
+            class="btn-primary wtp__play-btn wtp__btn-padding"
             id="play-button"
           >
             PLAY
           </button>
         </div>
       </div>
-      <div class="pokeball greatball">
+      <div class="greatball__svg--wrapper">
         <!-- img # link to greatballsvg -->
-        <img src="./assets/greatball.svg" class="greatball--bg" />
+        <img src="./assets/greatball-blue.svg" class="greatball--bg" />
         <img class="greatball--svg" id="pokemon-svg" src="" alt="" />
       </div>
+      <p class="wtp__text-box">IT'S BLASTIOSE!!</p>
       <div class="greatball__input-box">
-        <input
-          type="text"
-          id="greatball-user-input"
-          name="pokemon-name"
-          class="greatball__input-box--input"
-          id="greatball-input"
-        />
+        <div class="greatball__input-wrap">
+          <input
+            type="text"
+            id="greatball-user-input"
+            name="pokemon-name"
+            class="greatball__input-box--input btn-primary"
+            id="greatball-input"
+          />
+          <button
+            class="btn-primary btn-submit wtp__btn-padding"
+            id="greatball-submit-btn"
+          >
+            SUBMIT
+          </button>
+        </div>
         <button
-          class="btn-primary btn-submit wtp__btn--padding"
-          id="greatball-submit-btn"
-        >
-          SUBMIT
-        </button>
-        <button
-          class="wtp__skip-btn btn-primary wtp__btn--padding"
+          class="wtp__skip-btn btn-primary wtp__btn-padding"
           id="wtp__skip-btn"
         >
           SKIP
         </button>
       </div>
       <div class="greatball__bottom-bar">
-        <div class="btn-primary">
+        <div class="btn-primary wtp__btn-padding">
           <p>SCORE</p>
           <p>#</p>
         </div>
-        <div class="btn-primary">
+        <div class="btn-primary wtp__button-padding">
           <p>STREAK</p>
           <p>#</p>
         </div>
-        <button class="btn-hint btn-primary" id="greatball-btn-hint">
+        <button
+          class="btn-hint btn-primary wtp__btn-padding"
+          id="greatball-btn-hint"
+        >
           need a hint?
         </button>
       </div>

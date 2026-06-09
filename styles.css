@@ -12,6 +12,16 @@
   --grayscale-white: #ffffff;
   --off-white: #f8f8f8;
 }
+html {
+  font-size: 18px;
+}
+
+p,
+a,
+select,
+button {
+  font-size: 1rem;
+}
 
 * {
   box-sizing: border-box;
@@ -24,6 +34,7 @@
   width: 100%;
   height: 100%;
 }
+
 /* pokeball css start */
 .home-body {
   margin-top: 50px;
@@ -144,10 +155,15 @@ select {
   -moz-appearance: none;
   background: transparent;
   background-image: url("./assets/sort-down-solid-full\ \(1\).svg");
+  background-size: 50px;
   background-repeat: no-repeat;
   background-position-x: 100%;
-  background-position-y: -10px;
-  padding: 20px 50px;
+  background-position-y: -150%;
+  height: 65px;
+  width: 275px;
+  padding-left: 15px;
+
+  margin-right: 20px;
 }
 
 .header__title {
@@ -159,7 +175,7 @@ select {
   text-decoration: none;
 }
 
-.greatball {
+.greatball__svg--wrapper {
   position: relative;
   display: grid;
   place-items: center;
@@ -167,13 +183,15 @@ select {
 
 .greatball--bg {
   grid-area: 1/1;
-  width: 90%;
-  height: 90%;
+  width: 600px;
+  height: 600px;
 }
 
 .greatball--svg {
   grid-area: 1/1;
-  width: 50%;
+  width: 80%;
+  height: 80%;
+  aspect-ratio: 1/1;
   filter: brightness(0);
 }
 
@@ -203,6 +221,7 @@ nav a {
   flex-direction: row;
   gap: 200px;
   padding: 50px 0 0 0;
+  margin-bottom: 40px;
   justify-content: space-around;
 }
 
@@ -215,27 +234,59 @@ nav a {
   color: var(--origin-primary);
 }
 
-.wtp__dropdown {
-  margin-right: 20px;
-}
-
 .wtp__play-btn {
   background-color: var(--pika-yellow);
 }
 
-.wtp__btn--padding {
-  padding: 20px 30px;
+.wtp__btn-padding {
+  height: 65px;
+  width: 120px;
 }
 
 .btn-primary {
   border: 5px solid black;
-  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
+  box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 1);
 }
 
-.greatball__input-box,
+.wtp__text-box p {
+  font-size: 2rem;
+  padding: 20px 20px;
+  text-align: center;
+}
+
+.greatball__input-box {
+  margin-top: 15px;
+  display: flex;
+  gap: 30px;
+}
+.greatball__input-wrap {
+  display: flex;
+}
+
 .greatball__bottom-bar {
   display: flex;
-  justify-content: space-between;
-  width: 600px;
-  margin: 50px;
+  margin: 15px 0 50px;
+  gap: 50px;
+}
+
+.greatball__input-box--input {
+  height: 65px;
+}
+
+.greatball__bottom-bar .btn-primary {
+  width: 200px;
+  text-align: center;
+  padding: 5px 0;
+}
+
+.wtp__right {
+  display: flex;
+  align-items: end;
+}
+
+.wtp__select-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: start;
 }
