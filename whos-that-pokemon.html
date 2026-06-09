@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Whos That Pokemon</title>
     <script src="./whos-that-pokemon.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/7ade9dc5a4.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -23,13 +27,14 @@
     </header>
     <main class="container">
       <div class="wtp">
-        <h1 class="wtp__title">WHO'S THAT <br /><span>POKEMON??</span></h1>
+        <h1 class="wtp__title">WHO'S THAT<br /><span>POKEMON??</span></h1>
         <div class="wtp__right">
+          <p>Select a Generation</p>
           <label for="gen-selector"></label>
           <select
             name="generations"
             id="gen-selector"
-            class="wtp__dropdown btn-primary wtp__btn--padding"
+            class="wtp__dropdown btn-primary 
           >
             <option value="gen-all">Select a generation!</option>
             <option value="gen-all">ALL GENERATIONS</option>
