@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton+SC&family=Archivo+Black&family=Archivo:ital,wght@0,100..900;1,100..900&family=Lexend:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
@@ -19,6 +19,7 @@
   padding: 0;
   font-family: "lexend";
 }
+
 /* pokeball css start */
 .home-body {
   margin-top: 50px;
@@ -130,15 +131,33 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 15px;
+  padding: 5px 0px;
   width: 100%;
 }
-header img {
-  height: 75px;
+.header__title {
+  font-family: "Archivo black";
+  font-size: 40px;
+  font-weight: bolder;
+  color: var(--pika-yellow);
+  -webkit-text-stroke: 3px black;
+  text-decoration: none;
 }
-.greatball--svg {
-  aspect-ratio: 1/1;
 
+.greatball {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.greatball--bg {
+  grid-area: 1/1;
+  width: 90%;
+  height: 90%;
+}
+
+.greatball--svg {
+  grid-area: 1/1;
+  width: 50%;
   filter: brightness(0);
 }
 
@@ -147,12 +166,12 @@ nav {
   align-items: flex-end;
   display: flex;
   margin: 0 auto;
-  gap: 25px;
+  gap: 15px;
 }
 nav a {
-  padding: 5px 5px;
+  /* padding: 5px 5px; */
   font-weight: bold;
-  font-size: 22px;
+  font-size: 18px;
   color: var(--off-white);
   text-decoration: none;
 }
@@ -160,22 +179,20 @@ nav a {
 .container {
   display: flex;
   flex-direction: column;
-
   align-items: center;
 }
 
 .wtp {
   display: flex;
-  width: 1440px;
   flex-direction: row;
   gap: 200px;
-  padding: 100px 0px;
+  padding: 50px 0 0 0;
   justify-content: space-around;
 }
 
 .wtp__title {
   font-weight: bolder;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 .wtp__title span {
@@ -190,7 +207,7 @@ nav a {
   background-color: var(--pika-yellow);
 }
 
-.wtp__btn-primary--padding {
+.wtp__btn--padding {
   padding: 20px 40px;
 }
 
