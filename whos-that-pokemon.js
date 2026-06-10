@@ -60,8 +60,22 @@ play.addEventListener("click", () => {
   buildPokemonElement(pokemonGens[selectedGen][0], pokemonGens[selectedGen][1]);
 });
 
-// if result has no image, rerun function until image found.
+// combo-box get data
 
-// set the svg to a variable
-// check if it has a value
-// if it doesnt, set a back up or just display an error message
+async function getPokemonName(name) {
+  try {
+    const url = `https://pokeapi.co/api/v2/pokemon/?limit=1025`;
+
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error(`Response status: ${res.status}`);
+    }
+    const data = await res.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+getPokemonName("bulbasaur");
+
+// 1025
