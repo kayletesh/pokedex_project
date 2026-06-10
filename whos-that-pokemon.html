@@ -67,12 +67,19 @@
       <div class="greatball__input-box">
         <div class="greatball__input-wrap">
           <input
-            type="text"
-            id="greatball-user-input"
+            list="pokemon"
+            id="pokemon-choice"
             name="pokemon-name"
-            class="greatball__input-box--input btn-primary"
-            id="greatball-input"
+            class="btn-primary"
           />
+          <datalist id="pokemon">
+            <option value="pikachu"></option>
+            <option value="charmander"></option>
+            <option value="meowth"></option>
+            <option value="togetic"></option>
+            <option value="herracross"></option>
+          </datalist>
+
           <button
             class="btn-primary btn-submit wtp__btn-padding"
             id="greatball-submit-btn"
