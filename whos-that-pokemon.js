@@ -1,3 +1,4 @@
+let currentPokemon;
 async function getPokemonData(id) {
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
   try {
@@ -20,7 +21,6 @@ function displayPokemonSVG(currentPokemon) {
   } else {
     document.querySelector("#pokemon-svg").src =
       currentPokemon.sprites.front_default;
-    console.log("backup img");
   }
 }
 
@@ -32,8 +32,7 @@ function randomID(min, max) {
 const play = document.querySelector("#play-button");
 
 async function buildPokemonElement(min, max) {
-  const currentPokemon = await getPokemonData(randomID(min, max));
-  console.log(currentPokemon);
+  currentPokemon = await getPokemonData(randomID(min, max));
   displayPokemonSVG(currentPokemon);
   play.disabled = false;
   play.innerText = "PLAY AGAIN";
@@ -87,3 +86,16 @@ function populateComboBox(pokemonArray) {
     datalist.appendChild(option);
   });
 }
+// Check if input selection matches the name of pokemon selected by buildPokemonElement
+const submit = document.querySelector("#greatball-submit-btn");
+
+submit.addEventListener("click", () => {
+  const playerInput = document.querySelector("#pokemon-choice").value;
+  if (playerInput === currentPokemon.name) {
+    console.log("correct");
+  } else {
+    console.log("Try Again");
+  }
+});
+
+// add alt text when image is displayed. not with the overlay
