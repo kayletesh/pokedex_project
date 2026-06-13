@@ -62,7 +62,7 @@ play.addEventListener("click", () => {
 
 // combo-box get data
 
-async function getPokemonName(name) {
+async function getPokemonName() {
   try {
     const url = `https://pokeapi.co/api/v2/pokemon/?limit=1025`;
 
@@ -76,6 +76,12 @@ async function getPokemonName(name) {
     console.error(error.message);
   }
 }
-getPokemonName("bulbasaur");
+getPokemonName();
 
 // 1025
+// get the name from the object
+const datalist = document.querySelector("#pokemon-list");
+const option = document.createElement("option");
+option.setAttribute("value", "bulbasuar");
+console.log(datalist);
+datalist.appendChild(option);

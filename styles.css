@@ -193,8 +193,11 @@ select {
   width: 80%;
   height: 80%;
   aspect-ratio: 1/1;
-  filter: brightness(0);
   user-select: none;
+}
+
+.black-overlay {
+  filter: brightness(0);
 }
 
 nav {
