@@ -71,17 +71,19 @@ async function getPokemonName() {
       throw new Error(`Response status: ${res.status}`);
     }
     const data = await res.json();
-    console.log(data);
+    populateComboBox(data.results);
   } catch (error) {
     console.error(error.message);
   }
 }
+
 getPokemonName();
 
-// 1025
-// get the name from the object
-const datalist = document.querySelector("#pokemon-list");
-const option = document.createElement("option");
-option.setAttribute("value", "bulbasuar");
-console.log(datalist);
-datalist.appendChild(option);
+function populateComboBox(pokemonArray) {
+  const datalist = document.querySelector("#pokemon-list");
+  pokemonArray.forEach((pokemon) => {
+    const option = document.createElement("option");
+    option.setAttribute("value", pokemon.name);
+    datalist.appendChild(option);
+  });
+}
