@@ -295,3 +295,15 @@ nav a {
   flex-wrap: wrap;
   align-items: start;
 }
+
+.correct-pokemon {
+  font-family: "Archivo Black";
+  font-weight: bolder;
+  font-size: 2rem;
+  color: var(--pika-yellow);
+  -webkit-text-stroke: 2px black;
+}
+
+.hidden {
+  display: none;
+}
