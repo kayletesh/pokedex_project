@@ -89,9 +89,10 @@ play.addEventListener("click", () => {
   buildPokemonElement(pokemonGens[selectedGen][0], pokemonGens[selectedGen][1]);
   if (play.innerText === "restart") {
     window.location.reload();
+    play.innerText = "play";
   }
   skipNextToggle();
-  play.innerText = "Restart";
+  play.innerText = "restart";
 });
 
 async function getPokemonName() {
@@ -131,24 +132,35 @@ submit.addEventListener("click", () => {
     comboBox.value = "";
     correctAnswer.classList.remove("hidden");
     pokemonFilter.classList.remove("black-overlay");
-    // skip.innerText = "Next";
+    skip.innerText = "Next";
     console.log(typeof pokemonFilter);
     correctAnswer.innerText = `It's ${currentPokemon.name.toUpperCase()}!`;
-    // skip.addEventListener("click", () => {
-    //   buildPokemonElement(
-    //     pokemonGens[selectedGen][0],
-    //     pokemonGens[selectedGen][1],
-    //   );
-    //   pokemonFilter.classList.add("black-overlay");
-    //   correctAnswer.classList.add("hidden");
-    //   comboBox.value = "";
-    //   skip.innerText = "Skip";
-    // });
   } else {
     console.log("Try Again");
   }
 });
 
 // add alt text when image is displayed. not with the overlay
-// Skip button on first click needs to reveal answer, then change the button to next.
-// next button needs to hide answer, empty combobox, and replay Gamepad.
+// is there a cleaner way to handle toggle skip/next
+
+// // gameState = false(?)
+// Textbox, submit, skip, hint should maybe be hidden before you play
+
+// // gameState = playing
+// PLAY turns into Restart
+
+// SKIP -
+// // Popup to agree to skip
+// // If YES
+// // // Remove Filter
+// // // Show Pokemon Name
+// // // SKIP = NEXT
+// // // SUBMIT is disabled
+// // If NO
+// // // Do nothing i guess lol
+
+// NEXT
+// // Get new currentPokemon
+// // Apply filter
+// // clear combobox
+// // NEXT = SKIP
