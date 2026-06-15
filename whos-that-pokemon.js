@@ -1,9 +1,7 @@
 let currentPokemon;
 let dropdown;
 let selectedGen;
-let skip;
 const submit = document.querySelector("#greatball-submit-btn");
-const pokemonFilter = document.querySelector("#pokemon-svg");
 const correctAnswer = document.querySelector("#correct-pokemon");
 
 async function getPokemonData(id) {
@@ -37,30 +35,29 @@ function randomID(min, max) {
   return Math.floor(Math.random() * (maxID - minID) + minID);
 }
 
-function skipNextToggle() {
-  skip = document.querySelector("#wtp__skip-btn");
-  console.log(typeof skip);
-  skip.addEventListener("click", () => {
-    if (skip.innerText === "Skip") {
-      skip.innerText = "Next";
-      correctAnswer.classList.remove("hidden");
-      correctAnswer.innerText = ` IT'S ${currentPokemon.name.toUpperCase()}`;
-      pokemonFilter.classList.remove("black-overlay");
-      console.log("skip");
-    } else if (skip.innerText === "Next") {
-      skip.innerText = "skip";
-      console.log("next");
-      buildPokemonElement(
-        pokemonGens[selectedGen][0],
-        pokemonGens[selectedGen][1],
-      );
-      pokemonFilter.classList.add("black-overlay");
-      correctAnswer.classList.add("hidden");
-      // comboBox.value = "";
-      skip.innerText = "Skip";
-    }
-  });
-}
+// function skipNextToggle() {
+//   console.log(typeof skip);
+//   skip.addEventListener("click", () => {
+//     if (skip.innerText === "Skip") {
+//       skip.innerText = "Next";
+//       correctAnswer.classList.remove("hidden");
+//       correctAnswer.innerText = ` IT'S ${currentPokemon.name.toUpperCase()}`;
+//       pokemonFilter.classList.remove("black-overlay");
+//       console.log("skip");
+//     } else if (skip.innerText === "Next") {
+//       skip.innerText = "skip";
+//       console.log("next");
+//       buildPokemonElement(
+//         pokemonGens[selectedGen][0],
+//         pokemonGens[selectedGen][1],
+//       );
+//       pokemonFilter.classList.add("black-overlay");
+//       correctAnswer.classList.add("hidden");
+//       // comboBox.value = "";
+//       skip.innerText = "Skip";
+//     }
+//   });
+// }
 const play = document.querySelector("#play-button");
 
 async function buildPokemonElement(min, max) {
@@ -87,12 +84,12 @@ play.addEventListener("click", () => {
   dropdown = document.querySelector("#gen-selector");
   selectedGen = dropdown.value;
   buildPokemonElement(pokemonGens[selectedGen][0], pokemonGens[selectedGen][1]);
-  if (play.innerText === "restart") {
+  if (play.innerText === "Restart") {
     window.location.reload();
     play.innerText = "play";
   }
-  skipNextToggle();
-  play.innerText = "restart";
+  // skipNextToggle();
+  play.innerText = "Restart";
 });
 
 async function getPokemonName() {
@@ -125,20 +122,18 @@ function populateComboBox(pokemonArray) {
 submit.addEventListener("click", () => {
   const playerInput = document.querySelector("#pokemon-choice").value;
 
-  const comboBox = document.querySelector("#pokemon-choice");
+  // const comboBox = document.querySelector("#pokemon-choice");
 
-  if (playerInput === currentPokemon.name) {
-    console.log("correct");
-    comboBox.value = "";
-    correctAnswer.classList.remove("hidden");
-    pokemonFilter.classList.remove("black-overlay");
-    skip.innerText = "Next";
-    console.log(typeof pokemonFilter);
-    correctAnswer.innerText = `It's ${currentPokemon.name.toUpperCase()}!`;
+  // if (playerInput === currentPokemon.name) {
+  const roundWon = playerInput === currentPokemon.name;
+  if (roundWon) {
+    handleRoundEnd();
   } else {
-    console.log("Try Again");
+    correctAnswer.classList.remove("hidden");
+    correctAnswer.innerText = `Try again!`;
   }
 });
+const pokemonFilter = document.querySelector("#pokemon-svg");
 
 // add alt text when image is displayed. not with the overlay
 // is there a cleaner way to handle toggle skip/next
@@ -149,15 +144,40 @@ submit.addEventListener("click", () => {
 // // gameState = playing
 // PLAY turns into Restart
 
-// SKIP -
-// // Popup to agree to skip
-// // If YES
-// // // Remove Filter
-// // // Show Pokemon Name
-// // // SKIP = NEXT
-// // // SUBMIT is disabled
-// // If NO
-// // // Do nothing i guess lol
+const skipBtn = () => {
+  if (confirm("Would you like to skip?")) {
+  } else {
+  }
+};
+
+const hintBtn = document.querySelector("#greatball-btn-hint");
+hintBtn.addEventListener("click", skipBtn);
+
+// RUN WHEN CORRECT OR SKIPPED
+const handleRoundEnd = () => {
+  pokemonFilter.classList.remove("black-overlay");
+  // // // Remove Filter
+
+  correctAnswer.classList.remove("hidden");
+  correctAnswer.innerText = `IT'S ${currentPokemon.name.toUpperCase()}!`;
+  // comboBox.value = "";
+  // // // Show Pokemon Name
+
+  skipNextBtn.innerText = "Next";
+  // // // SKIP = NEXT
+  submit.disabled = true;
+  // REUSED WHEN GAMESTATE HASN'T STARTED. MAYBE FUNCTION WE CAN REUSE
+  // // // SUBMIT is disabled
+};
+
+const skipNextBtn = document.querySelector("#wtp__skip-btn");
+skipNextBtn.addEventListener("click", handleSkip);
+
+function handleSkip() {
+  if (confirm("Are you sure you wish to skip?")) {
+    handleRoundEnd();
+  }
+}
 
 // NEXT
 // // Get new currentPokemon
