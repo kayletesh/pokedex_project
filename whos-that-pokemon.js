@@ -17,16 +17,26 @@ async function getPokemonData(id) {
     console.error(error.message);
   }
 }
-
+// original code: function displayPokemonSVG(currentPokemon) {
+//   const pokeSVG = currentPokemon.sprites.other.dream_world.front_default;
+//   if (pokeSVG) {
+//     document.querySelector("#pokemon-svg").src = pokeSVG;
+//   } else {
+//     document.querySelector("#pokemon-svg").src =
+//       currentPokemon.sprites.front_default;
+//   }
 function displayPokemonSVG(currentPokemon) {
-  const pokeSVG = currentPokemon.sprites.other.dream_world.front_default;
+  const pokemonImgSrc =
+    currentPokemon.sprites.other.dream_world.front_default ||
+    currentPokemon.sprites.front_default;
+  const preloadImg = new Image();
+  preloadImg.addEventListener("load", () => {
+    pokemonFilter.classList.add("black-overlay");
 
-  if (pokeSVG) {
-    document.querySelector("#pokemon-svg").src = pokeSVG;
-  } else {
-    document.querySelector("#pokemon-svg").src =
-      currentPokemon.sprites.front_default;
-  }
+    document.querySelector("#pokemon-svg").src = pokemonImgSrc;
+  });
+  preloadImg.src = pokemonImgSrc;
+  correctAnswer.classList.add("hidden");
 }
 
 function randomID(min, max) {
@@ -34,30 +44,6 @@ function randomID(min, max) {
   const maxID = Math.floor(max);
   return Math.floor(Math.random() * (maxID - minID) + minID);
 }
-
-// function skipNextToggle() {
-//   console.log(typeof skip);
-//   skip.addEventListener("click", () => {
-//     if (skip.innerText === "Skip") {
-//       skip.innerText = "Next";
-//       correctAnswer.classList.remove("hidden");
-//       correctAnswer.innerText = ` IT'S ${currentPokemon.name.toUpperCase()}`;
-//       pokemonFilter.classList.remove("black-overlay");
-//       console.log("skip");
-//     } else if (skip.innerText === "Next") {
-//       skip.innerText = "skip";
-//       console.log("next");
-//       buildPokemonElement(
-//         pokemonGens[selectedGen][0],
-//         pokemonGens[selectedGen][1],
-//       );
-//       pokemonFilter.classList.add("black-overlay");
-//       correctAnswer.classList.add("hidden");
-//       // comboBox.value = "";
-//       skip.innerText = "Skip";
-//     }
-//   });
-// }
 const play = document.querySelector("#play-button");
 
 async function buildPokemonElement(min, max) {
@@ -83,12 +69,13 @@ play.addEventListener("click", () => {
   play.disabled = true;
   dropdown = document.querySelector("#gen-selector");
   selectedGen = dropdown.value;
+  correctAnswer.classList.remove("hidden");
+  correctAnswer.innerText = "Loading...";
   buildPokemonElement(pokemonGens[selectedGen][0], pokemonGens[selectedGen][1]);
   if (play.innerText === "Restart") {
     window.location.reload();
     play.innerText = "play";
   }
-  // skipNextToggle();
   play.innerText = "Restart";
 });
 
@@ -136,7 +123,6 @@ submit.addEventListener("click", () => {
 const pokemonFilter = document.querySelector("#pokemon-svg");
 
 // add alt text when image is displayed. not with the overlay
-// is there a cleaner way to handle toggle skip/next
 
 // // gameState = false(?)
 // Textbox, submit, skip, hint should maybe be hidden before you play
@@ -171,12 +157,27 @@ const handleRoundEnd = () => {
 };
 
 const skipNextBtn = document.querySelector("#wtp__skip-btn");
-skipNextBtn.addEventListener("click", handleSkip);
+skipNextBtn.addEventListener("click", () => {
+  if (skipNextBtn.innerText === "Skip") {
+    handleSkip();
+  } else if (skipNextBtn.innerText === "Next") {
+    handleNextRound();
+  }
+});
 
 function handleSkip() {
   if (confirm("Are you sure you wish to skip?")) {
     handleRoundEnd();
   }
+}
+function handleNextRound() {
+  correctAnswer.classList.remove("hidden");
+  correctAnswer.innerText = "Loading...";
+  buildPokemonElement(pokemonGens[selectedGen][0], pokemonGens[selectedGen][1]);
+
+  // comboBox.value = "";
+  skipNextBtn.innerText = "Skip";
+  submit.disabled = false;
 }
 
 // NEXT
