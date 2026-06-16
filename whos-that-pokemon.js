@@ -129,15 +129,21 @@ const pokemonFilter = document.querySelector("#pokemon-svg");
 
 // // gameState = playing
 // PLAY turns into Restart
-
-const skipBtn = () => {
-  if (confirm("Would you like to skip?")) {
-  } else {
-  }
-};
-
-const hintBtn = document.querySelector("#greatball-btn-hint");
-hintBtn.addEventListener("click", skipBtn);
+const cryBtn = document.querySelector("#btn-cry");
+cryBtn.addEventListener("click", () => {
+  const cry = new Audio(currentPokemon.cries.latest);
+  console.log(cry);
+  cry.addEventListener("canplaythrough", () => {
+    cry.play();
+  });
+});
+const typeBtn = document.querySelector("#type-hint-btn");
+typeBtn.addEventListener("click", () => {
+  console.log(currentPokemon.types);
+  // this button needs to find the type of currentPokemon,
+  // change inner text to pokemon type,
+  // change color to match the color of each type
+});
 
 // RUN WHEN CORRECT OR SKIPPED
 const handleRoundEnd = () => {
