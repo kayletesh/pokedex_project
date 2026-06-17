@@ -127,9 +127,12 @@ typeBtn.addEventListener("click", () => {
   const pokemonTypes = currentPokemon.types;
   if (pokemonTypes.length === 1) {
     capitalizeFirstLetter(pokemonTypes[0].type.name);
+    typeBtn.classList.add(`${pokemonTypes[0].type.name}`);
     typeBtn.innerHTML = capitalizeFirstLetter(pokemonTypes[0].type.name);
   } else if (pokemonTypes.length === 2) {
     typeBtn.innerHTML = `${capitalizeFirstLetter(pokemonTypes[0].type.name)} / ${capitalizeFirstLetter(pokemonTypes[1].type.name)}`;
+    // typeBtn.classList.add(`${pokemonTypes[0].type.name}`);
+    // make the border show both colors, not the background.
   }
 
   // change color to match the color of each type by adding a classname that pulls the variable color
@@ -140,6 +143,7 @@ const handleRoundEnd = () => {
   correctAnswer.innerText = `IT'S ${currentPokemon.name.toUpperCase()}!`;
   skipNextBtn.innerText = "Next";
   submit.disabled = true;
+  // typeBtn.classList.replace;
 };
 const skipNextBtn = document.querySelector("#wtp__skip-btn");
 skipNextBtn.addEventListener("click", () => {
