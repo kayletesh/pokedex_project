@@ -27,11 +27,11 @@ function displayPokemonSVG(currentPokemon) {
   const preloadImg = new Image();
   preloadImg.addEventListener("load", () => {
     pokemonFilter.classList.add("black-overlay");
+    pokemonFilter.classList.remove("hidden");
 
     document.querySelector("#pokemon-svg").src = pokemonImgSrc;
   });
   preloadImg.src = pokemonImgSrc;
-  correctAnswer.classList.add("hidden");
 }
 function randomID(min, max) {
   const minID = Math.ceil(min);
@@ -42,6 +42,7 @@ async function buildPokemonElement(min, max) {
   currentPokemon = await getPokemonData(randomID(min, max));
   displayPokemonSVG(currentPokemon);
   play.disabled = false;
+  correctAnswer.innerText = "";
 }
 const pokemonGens = {
   "gen-all": [1, 1025],
@@ -57,10 +58,11 @@ const pokemonGens = {
 };
 play.addEventListener("click", () => {
   play.disabled = true;
+
   dropdown = document.querySelector("#gen-selector");
   selectedGen = dropdown.value;
   scoreCard.innerHTML = `${playerScore}`;
-  correctAnswer.classList.remove("hidden");
+
   correctAnswer.innerText = "Loading...";
   buildPokemonElement(pokemonGens[selectedGen][0], pokemonGens[selectedGen][1]);
   if (play.innerText === "Restart") {
@@ -114,7 +116,7 @@ function capitalizeFirstLetter(string) {
 
 const handleRoundEnd = () => {
   pokemonFilter.classList.remove("black-overlay");
-  correctAnswer.classList.remove("hidden");
+
   correctAnswer.innerText = `IT'S ${currentPokemon.name.toUpperCase()}!`;
   skipNextBtn.innerText = "Next";
   submit.disabled = true;
@@ -135,7 +137,6 @@ function handleSkip() {
   }
 }
 function handleNextRound() {
-  correctAnswer.classList.remove("hidden");
   correctAnswer.innerText = "Loading...";
   buildPokemonElement(pokemonGens[selectedGen][0], pokemonGens[selectedGen][1]);
   typeBtn.innerText = "Pokemon type";
@@ -152,7 +153,6 @@ const submitForm = (e) => {
     playerScore = playerScore + 3;
     scoreCard.innerHTML = playerScore;
   } else {
-    correctAnswer.classList.remove("hidden");
     correctAnswer.innerText = `Try again!`;
   }
 };

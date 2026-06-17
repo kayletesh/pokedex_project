@@ -32,11 +32,7 @@
           <div class="wtp__select-wrapper">
             <p>Select a Generation</p>
             <label for="gen-selector"></label>
-            <select
-              name="generations"
-              id="gen-selector"
-              class="wtp__dropdown btn-primary"
-            >
+            <select name="generations" id="gen-selector" class="btn-primary">
               <!-- <option value="gen-all">Select a generation!</option> -->
               <option value="gen-all">All Generations</option>
               <option value="gen-one">One (KANTO)</option>
@@ -60,55 +56,56 @@
       </div>
       <div class="greatball__svg--wrapper">
         <!-- img # link to greatballsvg -->
-        <img src="./assets/greatball-blue.svg" class="greatball--bg" />
+        <img src="./assets/greatball-blue.svg" class="greatball__bg" />
         <img
-          class="greatball--svg black-overlay"
+          class="greatball__svg black-overlay hidden"
           id="pokemon-svg"
           src=""
           alt=""
         />
       </div>
-      <p class="correct-pokemon hidden" id="correct-pokemon">testing</p>
-      <div class="greatball__input-box">
-        <div class="greatball__input-wrap">
-          <form onsubmit="submitForm(event)">
-            <input
-              list="pokemon-list"
-              id="pokemon-choice"
-              name="pokemon-name"
-              class="btn-primary"
-            />
-            <datalist id="pokemon-list"> </datalist>
-            <button
-              type="submit"
-              value="pokemon-list"
-              class="btn-primary btn-submit wtp__btn-padding"
-              id="greatball-submit-btn"
-            >
-              Submit
-            </button>
-          </form>
-        </div>
+      <p class="sub-heading height-20" id="correct-pokemon"></p>
+      <div class="input-box__wrapper">
+        <form onsubmit="submitForm(event)">
+          <input
+            list="pokemon-list"
+            id="pokemon-choice"
+            name="pokemon-name"
+            class="input-box__input"
+          />
+          <datalist id="pokemon-list"> </datalist>
+          <button
+            type="submit"
+            value="pokemon-list"
+            class="btn-primary submit-btn wtp__btn-padding wtp__text--block-style"
+            id="greatball-submit-btn"
+          >
+            Submit
+          </button>
+        </form>
         <button
-          class="wtp__skip-btn btn-primary wtp__btn-padding"
+          class="skip-btn btn-primary wtp__btn-padding wtp__text--block-style"
           id="wtp__skip-btn"
         >
           Skip
         </button>
       </div>
-      <div class="greatball__bottom-bar">
-        <div class="btn-primary wtp__btn-padding" id="btn-score">
-          <p>Score</p>
+      <div class="bottom-bar__wrapper">
+        <div class="score-card btn-primary" id="btn-score">
+          <p class="wtp__text--block-style">Score</p>
           <p id="player-score">#</p>
         </div>
-        <div class="btn-primary wtp__button-padding" id="btn-cry">
+        <div
+          class="hint-btn__cry wtp__text--block-style btn-primary"
+          id="btn-cry"
+        >
           <p>Hear it's Cry</p>
         </div>
         <button
-          class="btn-type btn-primary wtp__btn-padding"
+          class="hint-btn__type wtp__text--block-style btn-primary"
           id="type-hint-btn"
         >
-          Pokemon Type
+          What's my Type
         </button>
       </div>
     </main>
