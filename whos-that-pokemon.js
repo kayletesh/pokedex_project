@@ -92,18 +92,7 @@ function populateComboBox(pokemonArray) {
     datalist.appendChild(option);
   });
 }
-submit.addEventListener("click", () => {
-  const playerInput = document.querySelector("#pokemon-choice").value;
-  const roundWon = playerInput === currentPokemon.name;
-  if (roundWon) {
-    handleRoundEnd();
-    playerScore = playerScore + 3;
-    scoreCard.innerHTML = playerScore;
-  } else {
-    correctAnswer.classList.remove("hidden");
-    correctAnswer.innerText = `Try again!`;
-  }
-});
+
 const pokemonFilter = document.querySelector("#pokemon-svg");
 
 // add alt text when image is displayed. not with the overlay
@@ -122,21 +111,7 @@ function capitalizeFirstLetter(string) {
     string.split("").splice(1, string.length).join("");
   return capitalString;
 }
-const typeBtn = document.querySelector("#type-hint-btn");
-typeBtn.addEventListener("click", () => {
-  const pokemonTypes = currentPokemon.types;
-  if (pokemonTypes.length === 1) {
-    capitalizeFirstLetter(pokemonTypes[0].type.name);
-    typeBtn.classList.add(`${pokemonTypes[0].type.name}`);
-    typeBtn.innerHTML = capitalizeFirstLetter(pokemonTypes[0].type.name);
-  } else if (pokemonTypes.length === 2) {
-    typeBtn.innerHTML = `${capitalizeFirstLetter(pokemonTypes[0].type.name)} / ${capitalizeFirstLetter(pokemonTypes[1].type.name)}`;
-    // typeBtn.classList.add(`${pokemonTypes[0].type.name}`);
-    // make the border show both colors, not the background.
-  }
 
-  // change color to match the color of each type by adding a classname that pulls the variable color
-});
 const handleRoundEnd = () => {
   pokemonFilter.classList.remove("black-overlay");
   correctAnswer.classList.remove("hidden");
@@ -167,3 +142,41 @@ function handleNextRound() {
   skipNextBtn.innerText = "Skip";
   submit.disabled = false;
 }
+
+const submitForm = (e) => {
+  e.preventDefault();
+  const guess = e.target[0].value;
+  const roundWon = guess === currentPokemon.name;
+  if (roundWon) {
+    handleRoundEnd();
+    playerScore = playerScore + 3;
+    scoreCard.innerHTML = playerScore;
+  } else {
+    correctAnswer.classList.remove("hidden");
+    correctAnswer.innerText = `Try again!`;
+  }
+};
+
+const typeBtn = document.querySelector("#type-hint-btn");
+typeBtn.addEventListener("click", handlePokemonTypeHint);
+function handlePokemonTypeHint() {
+  const pokemonTypes = currentPokemon.types;
+  if (pokemonTypes.length === 1) {
+    capitalizeFirstLetter(pokemonTypes[0].type.name);
+    typeBtn.innerHTML = capitalizeFirstLetter(pokemonTypes[0].type.name);
+  } else if (pokemonTypes.length === 2) {
+    typeBtn.innerHTML = `${capitalizeFirstLetter(pokemonTypes[0].type.name)} | ${capitalizeFirstLetter(pokemonTypes[1].type.name)}`;
+  }
+  typeBtn.style = `  background: linear-gradient(
+   -45deg,yellow 50%, blue 50%
+  ); 
+  `;
+  //   -webkit-text-stroke: 2px black;
+  //   font-size: 2rem;
+  //   color: var(--primary);
+}
+//     typeBtn.style = "background-color: var(--ice)";
+//     // border: 5px solid;
+//     // border-color: blue blue green green;
+//   // change color to match the color of each type by adding a classname that pulls the variable color
+//     // make the border show both colors, not the background.

@@ -71,20 +71,23 @@
       <p class="correct-pokemon hidden" id="correct-pokemon">testing</p>
       <div class="greatball__input-box">
         <div class="greatball__input-wrap">
-          <input
-            list="pokemon-list"
-            id="pokemon-choice"
-            name="pokemon-name"
-            class="btn-primary"
-          />
-          <datalist id="pokemon-list"> </datalist>
-
-          <button
-            class="btn-primary btn-submit wtp__btn-padding"
-            id="greatball-submit-btn"
-          >
-            Submit
-          </button>
+          <form onsubmit="submitForm(event)">
+            <input
+              list="pokemon-list"
+              id="pokemon-choice"
+              name="pokemon-name"
+              class="btn-primary"
+            />
+            <datalist id="pokemon-list"> </datalist>
+            <button
+              type="submit"
+              value="pokemon-list"
+              class="btn-primary btn-submit wtp__btn-padding"
+              id="greatball-submit-btn"
+            >
+              Submit
+            </button>
+          </form>
         </div>
         <button
           class="wtp__skip-btn btn-primary wtp__btn-padding"
