@@ -1,8 +1,11 @@
 let currentPokemon;
 let dropdown;
 let selectedGen;
+let playerScore = 0;
 const submit = document.querySelector("#greatball-submit-btn");
 const correctAnswer = document.querySelector("#correct-pokemon");
+const scoreCard = document.querySelector("#player-score");
+const play = document.querySelector("#play-button");
 
 async function getPokemonData(id) {
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -17,14 +20,6 @@ async function getPokemonData(id) {
     console.error(error.message);
   }
 }
-// original code: function displayPokemonSVG(currentPokemon) {
-//   const pokeSVG = currentPokemon.sprites.other.dream_world.front_default;
-//   if (pokeSVG) {
-//     document.querySelector("#pokemon-svg").src = pokeSVG;
-//   } else {
-//     document.querySelector("#pokemon-svg").src =
-//       currentPokemon.sprites.front_default;
-//   }
 function displayPokemonSVG(currentPokemon) {
   const pokemonImgSrc =
     currentPokemon.sprites.other.dream_world.front_default ||
@@ -38,20 +33,16 @@ function displayPokemonSVG(currentPokemon) {
   preloadImg.src = pokemonImgSrc;
   correctAnswer.classList.add("hidden");
 }
-
 function randomID(min, max) {
   const minID = Math.ceil(min);
   const maxID = Math.floor(max);
   return Math.floor(Math.random() * (maxID - minID) + minID);
 }
-const play = document.querySelector("#play-button");
-
 async function buildPokemonElement(min, max) {
   currentPokemon = await getPokemonData(randomID(min, max));
   displayPokemonSVG(currentPokemon);
   play.disabled = false;
 }
-
 const pokemonGens = {
   "gen-all": [1, 1025],
   "gen-one": [1, 151],
@@ -64,11 +55,11 @@ const pokemonGens = {
   "gen-eight": [810, 905],
   "gen-nine": [906, 1025],
 };
-
 play.addEventListener("click", () => {
   play.disabled = true;
   dropdown = document.querySelector("#gen-selector");
   selectedGen = dropdown.value;
+  scoreCard.innerHTML = `${playerScore}`;
   correctAnswer.classList.remove("hidden");
   correctAnswer.innerText = "Loading...";
   buildPokemonElement(pokemonGens[selectedGen][0], pokemonGens[selectedGen][1]);
@@ -78,7 +69,6 @@ play.addEventListener("click", () => {
   }
   play.innerText = "Restart";
 });
-
 async function getPokemonName() {
   try {
     const url = `https://pokeapi.co/api/v2/pokemon/?limit=1025`;
@@ -93,9 +83,7 @@ async function getPokemonName() {
     console.error(error.message);
   }
 }
-
 getPokemonName();
-
 function populateComboBox(pokemonArray) {
   const datalist = document.querySelector("#pokemon-list");
   pokemonArray.forEach((pokemon) => {
@@ -104,17 +92,13 @@ function populateComboBox(pokemonArray) {
     datalist.appendChild(option);
   });
 }
-// Check if input selection matches the name of pokemon selected by buildPokemonElement
-
 submit.addEventListener("click", () => {
   const playerInput = document.querySelector("#pokemon-choice").value;
-
-  // const comboBox = document.querySelector("#pokemon-choice");
-
-  // if (playerInput === currentPokemon.name) {
   const roundWon = playerInput === currentPokemon.name;
   if (roundWon) {
     handleRoundEnd();
+    playerScore = playerScore + 3;
+    scoreCard.innerHTML = playerScore;
   } else {
     correctAnswer.classList.remove("hidden");
     correctAnswer.innerText = `Try again!`;
@@ -124,11 +108,6 @@ const pokemonFilter = document.querySelector("#pokemon-svg");
 
 // add alt text when image is displayed. not with the overlay
 
-// // gameState = false(?)
-// Textbox, submit, skip, hint should maybe be hidden before you play
-
-// // gameState = playing
-// PLAY turns into Restart
 const cryBtn = document.querySelector("#btn-cry");
 cryBtn.addEventListener("click", () => {
   const cry = new Audio(currentPokemon.cries.latest);
@@ -137,31 +116,31 @@ cryBtn.addEventListener("click", () => {
     cry.play();
   });
 });
+function capitalizeFirstLetter(string) {
+  const capitalString =
+    string[0].toUpperCase() +
+    string.split("").splice(1, string.length).join("");
+  return capitalString;
+}
 const typeBtn = document.querySelector("#type-hint-btn");
 typeBtn.addEventListener("click", () => {
-  console.log(currentPokemon.types);
-  // this button needs to find the type of currentPokemon,
-  // change inner text to pokemon type,
-  // change color to match the color of each type
-});
+  const pokemonTypes = currentPokemon.types;
+  if (pokemonTypes.length === 1) {
+    capitalizeFirstLetter(pokemonTypes[0].type.name);
+    typeBtn.innerHTML = capitalizeFirstLetter(pokemonTypes[0].type.name);
+  } else if (pokemonTypes.length === 2) {
+    typeBtn.innerHTML = `${capitalizeFirstLetter(pokemonTypes[0].type.name)} / ${capitalizeFirstLetter(pokemonTypes[1].type.name)}`;
+  }
 
-// RUN WHEN CORRECT OR SKIPPED
+  // change color to match the color of each type by adding a classname that pulls the variable color
+});
 const handleRoundEnd = () => {
   pokemonFilter.classList.remove("black-overlay");
-  // // // Remove Filter
-
   correctAnswer.classList.remove("hidden");
   correctAnswer.innerText = `IT'S ${currentPokemon.name.toUpperCase()}!`;
-  // comboBox.value = "";
-  // // // Show Pokemon Name
-
   skipNextBtn.innerText = "Next";
-  // // // SKIP = NEXT
   submit.disabled = true;
-  // REUSED WHEN GAMESTATE HASN'T STARTED. MAYBE FUNCTION WE CAN REUSE
-  // // // SUBMIT is disabled
 };
-
 const skipNextBtn = document.querySelector("#wtp__skip-btn");
 skipNextBtn.addEventListener("click", () => {
   if (skipNextBtn.innerText === "Skip") {
@@ -170,24 +149,17 @@ skipNextBtn.addEventListener("click", () => {
     handleNextRound();
   }
 });
-
 function handleSkip() {
   if (confirm("Are you sure you wish to skip?")) {
     handleRoundEnd();
+    scoreCard.innerText = 0;
   }
 }
 function handleNextRound() {
   correctAnswer.classList.remove("hidden");
   correctAnswer.innerText = "Loading...";
   buildPokemonElement(pokemonGens[selectedGen][0], pokemonGens[selectedGen][1]);
-
-  // comboBox.value = "";
+  typeBtn.innerText = "Pokemon type";
   skipNextBtn.innerText = "Skip";
   submit.disabled = false;
 }
-
-// NEXT
-// // Get new currentPokemon
-// // Apply filter
-// // clear combobox
-// // NEXT = SKIP
