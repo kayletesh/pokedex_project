@@ -1,3 +1,12 @@
+let currentPokemon;
+let dropdown;
+let selectedGen;
+let playerScore = 0;
+const submit = document.querySelector("#greatball-submit-btn");
+const correctAnswer = document.querySelector("#correct-pokemon");
+const scoreCard = document.querySelector("#player-score");
+const play = document.querySelector("#play-button");
+
 async function getPokemonData(id) {
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
   try {
@@ -11,34 +20,29 @@ async function getPokemonData(id) {
     console.error(error.message);
   }
 }
-
 function displayPokemonSVG(currentPokemon) {
-  const pokeSVG = currentPokemon.sprites.other.dream_world.front_default;
+  const pokemonImgSrc =
+    currentPokemon.sprites.other.dream_world.front_default ||
+    currentPokemon.sprites.front_default;
+  const preloadImg = new Image();
+  preloadImg.addEventListener("load", () => {
+    pokemonFilter.classList.add("black-overlay");
 
-  if (pokeSVG) {
-    document.querySelector("#pokemon-svg").src = pokeSVG;
-  } else {
-    document.querySelector("#pokemon-svg").src =
-      currentPokemon.sprites.front_default;
-    console.log("backup img");
-  }
+    document.querySelector("#pokemon-svg").src = pokemonImgSrc;
+  });
+  preloadImg.src = pokemonImgSrc;
+  correctAnswer.classList.add("hidden");
 }
-
 function randomID(min, max) {
   const minID = Math.ceil(min);
   const maxID = Math.floor(max);
   return Math.floor(Math.random() * (maxID - minID) + minID);
 }
-const play = document.querySelector("#play-button");
-
 async function buildPokemonElement(min, max) {
-  const currentPokemon = await getPokemonData(randomID(min, max));
-  console.log(currentPokemon);
+  currentPokemon = await getPokemonData(randomID(min, max));
   displayPokemonSVG(currentPokemon);
   play.disabled = false;
-  play.innerText = "PLAY AGAIN";
 }
-
 const pokemonGens = {
   "gen-all": [1, 1025],
   "gen-one": [1, 151],
@@ -51,17 +55,115 @@ const pokemonGens = {
   "gen-eight": [810, 905],
   "gen-nine": [906, 1025],
 };
-
 play.addEventListener("click", () => {
   play.disabled = true;
-  const dropdown = document.querySelector("#gen-selector");
-  const selectedGen = dropdown.value;
-  //   let selectedGenRange;
+  dropdown = document.querySelector("#gen-selector");
+  selectedGen = dropdown.value;
+  scoreCard.innerHTML = `${playerScore}`;
+  correctAnswer.classList.remove("hidden");
+  correctAnswer.innerText = "Loading...";
   buildPokemonElement(pokemonGens[selectedGen][0], pokemonGens[selectedGen][1]);
+  if (play.innerText === "Restart") {
+    window.location.reload();
+    play.innerText = "play";
+  }
+  play.innerText = "Restart";
 });
+async function getPokemonName() {
+  try {
+    const url = `https://pokeapi.co/api/v2/pokemon/?limit=1025`;
 
-// if result has no image, rerun function until image found.
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error(`Response status: ${res.status}`);
+    }
+    const data = await res.json();
+    populateComboBox(data.results);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+getPokemonName();
+function populateComboBox(pokemonArray) {
+  const datalist = document.querySelector("#pokemon-list");
+  pokemonArray.forEach((pokemon) => {
+    const option = document.createElement("option");
+    option.setAttribute("value", pokemon.name);
+    datalist.appendChild(option);
+  });
+}
+submit.addEventListener("click", () => {
+  const playerInput = document.querySelector("#pokemon-choice").value;
+  const roundWon = playerInput === currentPokemon.name;
+  if (roundWon) {
+    handleRoundEnd();
+    playerScore = playerScore + 3;
+    scoreCard.innerHTML = playerScore;
+  } else {
+    correctAnswer.classList.remove("hidden");
+    correctAnswer.innerText = `Try again!`;
+  }
+});
+const pokemonFilter = document.querySelector("#pokemon-svg");
 
-// set the svg to a variable
-// check if it has a value
-// if it doesnt, set a back up or just display an error message
+// add alt text when image is displayed. not with the overlay
+
+const cryBtn = document.querySelector("#btn-cry");
+cryBtn.addEventListener("click", () => {
+  const cry = new Audio(currentPokemon.cries.latest);
+  console.log(cry);
+  cry.addEventListener("canplaythrough", () => {
+    cry.play();
+  });
+});
+function capitalizeFirstLetter(string) {
+  const capitalString =
+    string[0].toUpperCase() +
+    string.split("").splice(1, string.length).join("");
+  return capitalString;
+}
+const typeBtn = document.querySelector("#type-hint-btn");
+typeBtn.addEventListener("click", () => {
+  const pokemonTypes = currentPokemon.types;
+  if (pokemonTypes.length === 1) {
+    capitalizeFirstLetter(pokemonTypes[0].type.name);
+    typeBtn.classList.add(`${pokemonTypes[0].type.name}`);
+    typeBtn.innerHTML = capitalizeFirstLetter(pokemonTypes[0].type.name);
+  } else if (pokemonTypes.length === 2) {
+    typeBtn.innerHTML = `${capitalizeFirstLetter(pokemonTypes[0].type.name)} / ${capitalizeFirstLetter(pokemonTypes[1].type.name)}`;
+    // typeBtn.classList.add(`${pokemonTypes[0].type.name}`);
+    // make the border show both colors, not the background.
+  }
+
+  // change color to match the color of each type by adding a classname that pulls the variable color
+});
+const handleRoundEnd = () => {
+  pokemonFilter.classList.remove("black-overlay");
+  correctAnswer.classList.remove("hidden");
+  correctAnswer.innerText = `IT'S ${currentPokemon.name.toUpperCase()}!`;
+  skipNextBtn.innerText = "Next";
+  submit.disabled = true;
+  // typeBtn.classList.replace;
+};
+const skipNextBtn = document.querySelector("#wtp__skip-btn");
+skipNextBtn.addEventListener("click", () => {
+  if (skipNextBtn.innerText === "Skip") {
+    handleSkip();
+  } else if (skipNextBtn.innerText === "Next") {
+    handleNextRound();
+  }
+});
+function handleSkip() {
+  if (confirm("Are you sure you wish to skip?")) {
+    handleRoundEnd();
+    scoreCard.innerText = 0;
+  }
+}
+function handleNextRound() {
+  correctAnswer.classList.remove("hidden");
+  correctAnswer.innerText = "Loading...";
+  buildPokemonElement(pokemonGens[selectedGen][0], pokemonGens[selectedGen][1]);
+  typeBtn.innerText = "Pokemon type";
+  skipNextBtn.innerText = "Skip";
+  submit.disabled = false;
+}
