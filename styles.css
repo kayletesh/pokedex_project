@@ -255,9 +255,18 @@ nav {
   margin: 0 auto;
   gap: 15px;
 }
+
+nav div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+nav p {
+  color: var(--off-white);
+}
 nav a {
-  /* padding: 5px 5px; */
   font-weight: bold;
+  text-align: center;
   font-size: 1rem;
   color: var(--off-white);
   /* add hover effect */
