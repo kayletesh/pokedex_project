@@ -111,21 +111,6 @@ button {
   height: 100%;
 }
 
-.wtp__text--block-style {
-  text-shadow:
-    2px 2px 0 #27292a,
-    2px -2px 0 #27292a,
-    -2px 2px 0 #27292a,
-    -2px -2px 0 #27292a,
-    2px 0px 0 #27292a,
-    0px 2px 0 #27292a,
-    -2px 0px 0 #27292a,
-    0px -2px 0 #27292a;
-
-  color: #f8f8f8;
-  font-weight: bolder;
-  font-size: 1rem;
-}
 /* pokeball css start */
 .home-body {
   margin-top: 50px;
@@ -299,12 +284,37 @@ nav a {
 .wtp__top-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: end;
 }
+.wtp__select {
+  font-weight: bold;
+  border: 5px solid black;
+  box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 1);
+}
+
 .wtp__play-btn {
   background-color: var(--pika-yellow);
-  width: 127px;
+  height: 62px;
+  align-self: flex-end;
+
+  /* height: 65px; */
 }
+.score-card {
+  margin-right: -50px;
+  align-self: flex-end;
+  padding: 3px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+.high-score-card {
+  margin-left: -80px;
+}
+
+.wtp__left {
+  display: flex;
+  justify-content: space-between;
+}
+
 .wtp__select-wrapper {
   display: flex;
   flex-direction: column;
@@ -313,6 +323,19 @@ nav a {
   padding: 15px 30px;
 }
 .btn-primary {
+  text-shadow:
+    2px 2px 0 #27292a,
+    2px -2px 0 #27292a,
+    -2px 2px 0 #27292a,
+    -2px -2px 0 #27292a,
+    2px 0px 0 #27292a,
+    0px 2px 0 #27292a,
+    -2px 0px 0 #27292a,
+    0px -2px 0 #27292a;
+
+  color: #f8f8f8;
+  font-weight: bolder;
+  font-size: 1rem;
   font-weight: bold;
   border: 5px solid black;
   box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 1);
@@ -395,14 +418,6 @@ nav a {
   gap: 20px;
 }
 
-.score-card {
-  padding: 20px;
-  background: linear-gradient(
-    150deg,
-    var(--primary) 0% 50%,
-    var(--off-white) 50% 100%
-  );
-}
 .hint-btn__cry {
   padding: 10px 14px 14px 14px;
   background: linear-gradient(
@@ -419,7 +434,7 @@ nav a {
     var(--off-white) 50% 100%
   );
 }
-.score-card,
+
 .hint-btn__cry,
 .hint-btn__type {
   border-radius: 100%;

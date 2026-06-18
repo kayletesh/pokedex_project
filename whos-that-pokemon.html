@@ -27,31 +27,42 @@
     </header>
     <main class="container">
       <div class="wtp">
-        <h1 class="wtp__title">WHO'S THAT<span>POKEMON??</span></h1>
+        <h1 class="wtp__title">WHO'S THAT <span>POKEMON??</span></h1>
         <div class="wtp__top-wrapper">
-          <div class="wtp__select-wrapper">
-            <p>Select a Generation</p>
-            <label for="gen-selector"></label>
-            <select name="generations" id="gen-selector" class="btn-primary">
-              <!-- <option value="gen-all">Select a generation!</option> -->
-              <option value="gen-all">All Generations</option>
-              <option value="gen-one">One (KANTO)</option>
-              <option value="gen-two">Two (JHOTO)</option>
-              <option value="gen-three">Three (HOENN)</option>
-              <option value="gen-four">Four (SINNOH)</option>
-              <option value="gen-five">Five (UNOVA)</option>
-              <option value="gen-six">Six (KALOS)</option>
-              <option value="gen-seven">Seven (ALOLA)</option>
-              <option value="gen-eight">Eight (GALAR)</option>
-              <option value="gen-nine">Nine (PALDEA)</option>
-            </select>
+          <div class="wtp__left">
+            <div class="wtp__select-wrapper">
+              <p>Select a Generation</p>
+              <label for="gen-selector"></label>
+              <select name="generations" id="gen-selector" class="wtp__select">
+                <!-- <option value="gen-all">Select a generation!</option> -->
+                <option value="gen-all">All Generations</option>
+                <option value="gen-one">One (KANTO)</option>
+                <option value="gen-two">Two (JHOTO)</option>
+                <option value="gen-three">Three (HOENN)</option>
+                <option value="gen-four">Four (SINNOH)</option>
+                <option value="gen-five">Five (UNOVA)</option>
+                <option value="gen-six">Six (KALOS)</option>
+                <option value="gen-seven">Seven (ALOLA)</option>
+                <option value="gen-eight">Eight (GALAR)</option>
+                <option value="gen-nine">Nine (PALDEA)</option>
+              </select>
+            </div>
+            <button
+              class="btn-primary wtp__play-btn wtp__btn-padding"
+              id="play-button"
+            >
+              Play
+            </button>
           </div>
-          <button
-            class="btn-primary wtp__play-btn wtp__btn-padding"
-            id="play-button"
-          >
-            Play
-          </button>
+
+          <div class="score-card" id="btn-score">
+            <p class="">Score</p>
+            <p class="" id="player-score">0</p>
+          </div>
+          <div class="score-card high-score-card" id="btn-score">
+            <p class="">High Score</p>
+            <p class="" id="player-high-score">0</p>
+          </div>
         </div>
       </div>
       <div class="greatball__svg--wrapper">
@@ -78,31 +89,22 @@
           <button
             type="submit"
             value="pokemon-list"
-            class="btn-primary submit-btn wtp__btn-padding wtp__text--block-style"
+            class="btn-primary submit-btn wtp__btn-padding"
             id="greatball-submit-btn"
           >
             Submit
           </button>
         </form>
         <button
-          class="skip-btn btn-primary wtp__btn-padding wtp__text--block-style"
+          class="skip-btn btn-primary wtp__btn-padding"
           id="wtp__skip-btn"
         >
           Skip
         </button>
       </div>
       <div class="bottom-bar__wrapper">
-        <div class="score-card" id="btn-score">
-          <p class="wtp__text--block-style">Score</p>
-          <p class="wtp__text--block-style" id="player-score">0</p>
-        </div>
-        <button class="hint-btn__cry wtp__text--block-style" id="btn-cry">
-          Cry
-        </button>
-        <button
-          class="hint-btn__type wtp__text--block-style"
-          id="type-hint-btn"
-        >
+        <button class="hint-btn__cry btn-primary" id="btn-cry">Cry</button>
+        <button class="hint-btn__type btn-primary" id="type-hint-btn">
           Type
         </button>
       </div>
