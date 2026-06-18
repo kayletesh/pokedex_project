@@ -139,7 +139,7 @@ function handleSkip() {
 function handleNextRound() {
   correctAnswer.innerText = "Loading...";
   buildPokemonElement(pokemonGens[selectedGen][0], pokemonGens[selectedGen][1]);
-  typeBtn.innerText = "Pokemon type";
+  typeBtn.innerText = "What's my Type";
   skipNextBtn.innerText = "Skip";
   submit.disabled = false;
 }
@@ -164,13 +164,15 @@ function handlePokemonTypeHint() {
   if (pokemonTypes.length === 1) {
     capitalizeFirstLetter(pokemonTypes[0].type.name);
     typeBtn.innerHTML = capitalizeFirstLetter(pokemonTypes[0].type.name);
-  } else if (pokemonTypes.length === 2) {
-    typeBtn.innerHTML = `${capitalizeFirstLetter(pokemonTypes[0].type.name)} | ${capitalizeFirstLetter(pokemonTypes[1].type.name)}`;
-  }
-  typeBtn.style = `  background: linear-gradient(
-   -45deg,yellow 50%, blue 50%
-  ); 
+    typeBtn.style = `  background: var(--${pokemonTypes[0].type.name});
   `;
+  } else if (pokemonTypes.length === 2) {
+    typeBtn.innerHTML = `${capitalizeFirstLetter(pokemonTypes[0].type.name)} / ${capitalizeFirstLetter(pokemonTypes[1].type.name)}`;
+    typeBtn.style = `  background: linear-gradient(
+     -30deg,var(--${pokemonTypes[0].type.name}) 50%, var(--${pokemonTypes[1].type.name}) 50%
+    ); 
+    `;
+  }
   //   -webkit-text-stroke: 2px black;
   //   font-size: 2rem;
   //   color: var(--primary);
