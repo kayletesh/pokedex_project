@@ -291,6 +291,10 @@ nav a {
   box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 1);
 }
 
+.wtp__select-wrapper {
+  align-self: flex-end;
+}
+
 .wtp__play-btn {
   background-color: var(--pika-yellow);
   height: 62px;
@@ -298,16 +302,38 @@ nav a {
 
   /* height: 65px; */
 }
+
+.score-wrapper {
+  display: flex;
+  gap: 24px;
+}
+
 .score-card {
-  margin-right: -50px;
-  align-self: flex-end;
-  padding: 3px 15px;
-  font-size: 1rem;
-  font-weight: bold;
+  /* margin-right: -50px; */
+  /* align-self: flex-end; */
+  /* padding: 3px 15px; */
+  /* font-size: 1rem; */
+  /* font-weight: bold; */
   text-align: center;
 }
 .high-score-card {
-  margin-left: -80px;
+  /* margin-left: -80px; */
+}
+
+.score {
+  font-weight: bold;
+  color: #000;
+  /* text-shadow:
+    3px 3px 0 #27292a,
+    3px -3px 0 #27292a,
+    -3px 3px 0 #27292a,
+    -3px -3px 0 #27292a,
+    3px 0px 0 #27292a,
+    0px 3px 0 #27292a,
+    -3px 0px 0 #27292a,
+    0px -3px 0 #27292a; */
+  font-size: 3.5rem;
+  margin-top: -14px;
 }
 
 .wtp__left {
