@@ -1,11 +1,14 @@
 let currentPokemon;
 let dropdown;
 let selectedGen;
+let highScore = Number(localStorage.getItem("highScore")) || 0;
 let playerScore = 0;
 const submit = document.querySelector("#greatball-submit-btn");
 const correctAnswer = document.querySelector("#correct-pokemon");
 const scoreCard = document.querySelector("#player-score");
 const play = document.querySelector("#play-button");
+const highScoreElement = document.querySelector("#player-high-score");
+highScoreElement.innerText = highScore;
 
 async function getPokemonData(id) {
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -148,10 +151,18 @@ const submitForm = (e) => {
   e.preventDefault();
   const guess = e.target[0].value;
   const roundWon = guess === currentPokemon.name;
+
+  const highScoreElement = document.querySelector("#player-high-score");
   if (roundWon) {
     handleRoundEnd();
     playerScore = playerScore + 3;
-    scoreCard.innerHTML = playerScore;
+    scoreCard.innerText = playerScore;
+
+    if (playerScore >= highScore) {
+      localStorage.setItem("highScore", playerScore);
+      highScore = Number(localStorage.getItem("highScore"));
+      highScoreElement.innerText = highScore;
+    }
   } else {
     correctAnswer.innerText = `Try again!`;
   }
@@ -177,8 +188,8 @@ function handlePokemonTypeHint() {
   //   font-size: 2rem;
   //   color: var(--primary);
 }
-//     typeBtn.style = "background-color: var(--ice)";
-//     // border: 5px solid;
-//     // border-color: blue blue green green;
-//   // change color to match the color of each type by adding a classname that pulls the variable color
-//     // make the border show both colors, not the background.
+
+// score cards: Score updates on roundWon.
+//  high score updates when score updates, IF score is greater than high score.
+// High score saves to local storage on skip or restart
+// must update local storage, and pull local storage for the value on screen.
