@@ -286,11 +286,8 @@ nav a {
 
 .wtp {
   display: flex;
-  flex-direction: row;
-  gap: 200px;
-  padding: 30px 0;
-  /* margin-bottom: 40px; */
-  justify-content: space-around;
+  flex-direction: column;
+  margin-bottom: 40px;
 }
 .wtp__title {
   font-weight: bolder;
@@ -299,8 +296,9 @@ nav a {
 .wtp__title span {
   color: var(--primary);
 }
-.wtp__right {
+.wtp__top-wrapper {
   display: flex;
+  justify-content: space-between;
   align-items: end;
 }
 .wtp__play-btn {
@@ -366,7 +364,6 @@ nav a {
   box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 1);
   font-weight: bold;
   font-size: 1rem;
-  text-align: center;
   -webkit-appearance: none;
   -moz-appearance: none;
   background: transparent;
@@ -377,12 +374,12 @@ nav a {
   background-position-y: 10%;
   height: 62px;
   width: 250px;
-  padding: 0 5px;
+  padding-left: 10px;
 
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 ::placeholder {
-  color: black;
+  /* color: black; */
 }
 .submit-btn {
   margin-left: 20px;
