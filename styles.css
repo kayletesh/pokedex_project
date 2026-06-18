@@ -275,6 +275,7 @@ nav a {
   margin-bottom: 40px;
 }
 .wtp__title {
+  margin: 10px 0;
   font-weight: bolder;
   font-size: 2.5rem;
 }
@@ -305,33 +306,17 @@ nav a {
 
 .score-wrapper {
   display: flex;
-  gap: 24px;
+  gap: 20px;
 }
 
 .score-card {
-  /* margin-right: -50px; */
-  /* align-self: flex-end; */
-  /* padding: 3px 15px; */
-  /* font-size: 1rem; */
-  /* font-weight: bold; */
   text-align: center;
-}
-.high-score-card {
-  /* margin-left: -80px; */
 }
 
 .score {
   font-weight: bold;
   color: #000;
-  /* text-shadow:
-    3px 3px 0 #27292a,
-    3px -3px 0 #27292a,
-    -3px 3px 0 #27292a,
-    -3px -3px 0 #27292a,
-    3px 0px 0 #27292a,
-    0px 3px 0 #27292a,
-    -3px 0px 0 #27292a,
-    0px -3px 0 #27292a; */
+
   font-size: 3.5rem;
   margin-top: -14px;
 }
@@ -447,7 +432,7 @@ nav a {
 .hint-btn__cry {
   padding: 10px 14px 14px 14px;
   background: linear-gradient(
-    180deg,
+    150deg,
     var(--greatball-blue) 0% 50%,
     var(--off-white) 50% 100%
   );

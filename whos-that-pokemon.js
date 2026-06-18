@@ -188,8 +188,3 @@ function handlePokemonTypeHint() {
   //   font-size: 2rem;
   //   color: var(--primary);
 }
-
-// score cards: Score updates on roundWon.
-//  high score updates when score updates, IF score is greater than high score.
-// High score saves to local storage on skip or restart
-// must update local storage, and pull local storage for the value on screen.
