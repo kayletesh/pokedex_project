@@ -1,11 +1,14 @@
 let currentPokemon;
 let dropdown;
 let selectedGen;
+let highScore = Number(localStorage.getItem("highScore")) || 0;
 let playerScore = 0;
 const submit = document.querySelector("#greatball-submit-btn");
 const correctAnswer = document.querySelector("#correct-pokemon");
 const scoreCard = document.querySelector("#player-score");
 const play = document.querySelector("#play-button");
+const highScoreElement = document.querySelector("#player-high-score");
+highScoreElement.innerText = highScore;
 
 async function getPokemonData(id) {
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -27,11 +30,11 @@ function displayPokemonSVG(currentPokemon) {
   const preloadImg = new Image();
   preloadImg.addEventListener("load", () => {
     pokemonFilter.classList.add("black-overlay");
+    pokemonFilter.classList.remove("hidden");
 
     document.querySelector("#pokemon-svg").src = pokemonImgSrc;
   });
   preloadImg.src = pokemonImgSrc;
-  correctAnswer.classList.add("hidden");
 }
 function randomID(min, max) {
   const minID = Math.ceil(min);
@@ -42,6 +45,7 @@ async function buildPokemonElement(min, max) {
   currentPokemon = await getPokemonData(randomID(min, max));
   displayPokemonSVG(currentPokemon);
   play.disabled = false;
+  correctAnswer.innerText = "";
 }
 const pokemonGens = {
   "gen-all": [1, 1025],
@@ -57,10 +61,11 @@ const pokemonGens = {
 };
 play.addEventListener("click", () => {
   play.disabled = true;
+
   dropdown = document.querySelector("#gen-selector");
   selectedGen = dropdown.value;
   scoreCard.innerHTML = `${playerScore}`;
-  correctAnswer.classList.remove("hidden");
+
   correctAnswer.innerText = "Loading...";
   buildPokemonElement(pokemonGens[selectedGen][0], pokemonGens[selectedGen][1]);
   if (play.innerText === "Restart") {
@@ -92,18 +97,7 @@ function populateComboBox(pokemonArray) {
     datalist.appendChild(option);
   });
 }
-submit.addEventListener("click", () => {
-  const playerInput = document.querySelector("#pokemon-choice").value;
-  const roundWon = playerInput === currentPokemon.name;
-  if (roundWon) {
-    handleRoundEnd();
-    playerScore = playerScore + 3;
-    scoreCard.innerHTML = playerScore;
-  } else {
-    correctAnswer.classList.remove("hidden");
-    correctAnswer.innerText = `Try again!`;
-  }
-});
+
 const pokemonFilter = document.querySelector("#pokemon-svg");
 
 // add alt text when image is displayed. not with the overlay
@@ -122,24 +116,10 @@ function capitalizeFirstLetter(string) {
     string.split("").splice(1, string.length).join("");
   return capitalString;
 }
-const typeBtn = document.querySelector("#type-hint-btn");
-typeBtn.addEventListener("click", () => {
-  const pokemonTypes = currentPokemon.types;
-  if (pokemonTypes.length === 1) {
-    capitalizeFirstLetter(pokemonTypes[0].type.name);
-    typeBtn.classList.add(`${pokemonTypes[0].type.name}`);
-    typeBtn.innerHTML = capitalizeFirstLetter(pokemonTypes[0].type.name);
-  } else if (pokemonTypes.length === 2) {
-    typeBtn.innerHTML = `${capitalizeFirstLetter(pokemonTypes[0].type.name)} / ${capitalizeFirstLetter(pokemonTypes[1].type.name)}`;
-    // typeBtn.classList.add(`${pokemonTypes[0].type.name}`);
-    // make the border show both colors, not the background.
-  }
 
-  // change color to match the color of each type by adding a classname that pulls the variable color
-});
 const handleRoundEnd = () => {
   pokemonFilter.classList.remove("black-overlay");
-  correctAnswer.classList.remove("hidden");
+
   correctAnswer.innerText = `IT'S ${currentPokemon.name.toUpperCase()}!`;
   skipNextBtn.innerText = "Next";
   submit.disabled = true;
@@ -160,10 +140,51 @@ function handleSkip() {
   }
 }
 function handleNextRound() {
-  correctAnswer.classList.remove("hidden");
   correctAnswer.innerText = "Loading...";
   buildPokemonElement(pokemonGens[selectedGen][0], pokemonGens[selectedGen][1]);
-  typeBtn.innerText = "Pokemon type";
+  typeBtn.innerText = "What's my Type";
   skipNextBtn.innerText = "Skip";
   submit.disabled = false;
+}
+
+const submitForm = (e) => {
+  e.preventDefault();
+  const guess = e.target[0].value;
+  const roundWon = guess === currentPokemon.name;
+
+  const highScoreElement = document.querySelector("#player-high-score");
+  if (roundWon) {
+    handleRoundEnd();
+    playerScore = playerScore + 3;
+    scoreCard.innerText = playerScore;
+
+    if (playerScore >= highScore) {
+      localStorage.setItem("highScore", playerScore);
+      highScore = Number(localStorage.getItem("highScore"));
+      highScoreElement.innerText = highScore;
+    }
+  } else {
+    correctAnswer.innerText = `Try again!`;
+  }
+};
+
+const typeBtn = document.querySelector("#type-hint-btn");
+typeBtn.addEventListener("click", handlePokemonTypeHint);
+function handlePokemonTypeHint() {
+  const pokemonTypes = currentPokemon.types;
+  if (pokemonTypes.length === 1) {
+    capitalizeFirstLetter(pokemonTypes[0].type.name);
+    typeBtn.innerHTML = capitalizeFirstLetter(pokemonTypes[0].type.name);
+    typeBtn.style = `  background: var(--${pokemonTypes[0].type.name});
+  `;
+  } else if (pokemonTypes.length === 2) {
+    typeBtn.innerHTML = `${capitalizeFirstLetter(pokemonTypes[0].type.name)} / ${capitalizeFirstLetter(pokemonTypes[1].type.name)}`;
+    typeBtn.style = `  background: linear-gradient(
+     -30deg,var(--${pokemonTypes[0].type.name}) 50%, var(--${pokemonTypes[1].type.name}) 50%
+    ); 
+    `;
+  }
+  //   -webkit-text-stroke: 2px black;
+  //   font-size: 2rem;
+  //   color: var(--primary);
 }

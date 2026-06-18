@@ -11,60 +11,81 @@
   --grayscale-background: #efefef;
   --grayscale-white: #ffffff;
   --off-white: #f8f8f8;
+  --greatball-blue: #3d72e0;
+  --ultraball-grey: #434144; /* type-name variables */
+  --normal: #a8a878;
+  --fire: #f08030;
+  --water: #6890f0;
+  --electric: #f8d030;
+  --grass: #78c850;
+  --ice: #98d8d8;
+  --fighting: #c03028;
+  --poison: #a040a0;
+  --ground: #e0c068;
+  --flying: #a890f0;
+  --psychic: #f85888;
+  --bug: #a8b820;
+  --rock: #b8a038;
+  --ghost: #705898;
+  --dragon: #7038f8;
+  --dark: #705848;
+  --steel: #b8b8d0;
+  --fairy: #ee99ac;
+  --submit: #40dd40;
 }
-.normal {
-  background-color: #a8a878;
+.bg-normal {
+  background-color: var(--normal);
 }
-.fire {
-  background-color: #f08030;
+.bg-fire {
+  background-color: var(--fire);
 }
-.water {
-  background-color: #6890f0;
+.bg-water {
+  background-color: var(--water);
 }
-.electric {
-  background-color: #f8d030;
+.bg-electric {
+  background-color: var(--electric);
 }
-.grass {
-  background-color: #78c850;
+.bg-grass {
+  background-color: var(--grass);
 }
-.ice {
-  background-color: #98d8d8;
+.bg-ice {
+  background-color: var(--ice);
 }
-.fighting {
-  background-color: #c03028;
+.bg-fighting {
+  background-color: var(--fighting);
 }
-.poison {
-  background-color: #a040a0;
+.bg-poison {
+  background-color: var(--poison);
 }
-.ground {
-  background-color: #e0c068;
+.bg-ground {
+  background-color: var(--ground);
 }
-.flying {
-  background-color: #a890f0;
+.bg-flying {
+  background-color: var(--flying);
 }
-.psychic {
-  background-color: #f85888;
+.bg-psychic {
+  background-color: var(--psychic);
 }
-.bug {
-  background-color: #a8b820;
+.bg-bug {
+  background-color: var(--bug);
 }
-.rock {
-  background-color: #b8a038;
+.bg-rock {
+  background-color: var(--rock);
 }
-.ghost {
-  background-color: #705898;
+.bg-ghost {
+  background-color: var(--ghost);
 }
-.dragon {
-  background-color: #7038f8;
+.bg-dragon {
+  background-color: var(--dragon);
 }
-.dark {
-  background-color: #705848;
+.bg-dark {
+  background-color: var(--dark);
 }
-.steel {
-  background-color: #b8b8d0;
+.bg-steel {
+  background-color: var(--steel);
 }
-.fairy {
-  background-color: #ee99ac;
+.bg-fairy {
+  background-color: var(--fairy);
 }
 
 html {
@@ -195,66 +216,38 @@ button {
 body {
   background-color: var(--off-white);
 }
-
 header {
   background-color: var(--primary);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 5px 0px;
+  padding: 0 5px 5px 0;
   width: 100%;
 }
-
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
   background: transparent;
   background-image: url("./assets/sort-down-solid-full\ \(1\).svg");
-  background-size: 50px;
+  background-size: 40px;
   background-repeat: no-repeat;
   background-position-x: 100%;
-  background-position-y: -150%;
-  height: 65px;
-  width: 275px;
-  padding-left: 15px;
+  background-position-y: 10%;
+  height: 62px;
+  width: 200px;
+  padding-left: 5px;
 
   margin-right: 20px;
 }
 
 .header__title {
   font-family: "Archivo black";
-  font-size: 40px;
+  font-size: 35px;
   font-weight: bolder;
   color: var(--pika-yellow);
-  -webkit-text-stroke: 3px black;
+  -webkit-text-stroke: 2px black;
   text-decoration: none;
 }
-
-.greatball__svg--wrapper {
-  position: relative;
-  display: grid;
-  place-items: center;
-}
-
-.greatball--bg {
-  grid-area: 1/1;
-  width: 600px;
-  height: 600px;
-  user-select: none;
-}
-
-.greatball--svg {
-  grid-area: 1/1;
-  width: 80%;
-  height: 80%;
-  aspect-ratio: 1/1;
-  user-select: none;
-}
-
-.black-overlay {
-  filter: brightness(0);
-}
-
 nav {
   max-width: 1440px;
   align-items: flex-end;
@@ -265,11 +258,11 @@ nav {
 nav a {
   /* padding: 5px 5px; */
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1rem;
   color: var(--off-white);
+  /* add hover effect */
   text-decoration: none;
 }
-
 .container {
   display: flex;
   flex-direction: column;
@@ -278,87 +271,198 @@ nav a {
 
 .wtp {
   display: flex;
-  flex-direction: row;
-  gap: 200px;
-  padding: 50px 0 0 0;
+  flex-direction: column;
   margin-bottom: 40px;
-  justify-content: space-around;
 }
-
 .wtp__title {
+  margin: 10px 0;
   font-weight: bolder;
-  font-size: 40px;
+  font-size: 2.5rem;
 }
-
 .wtp__title span {
-  color: var(--origin-primary);
+  color: var(--primary);
 }
-
-.wtp__play-btn {
-  background-color: var(--pika-yellow);
+.wtp__top-wrapper {
+  display: flex;
+  justify-content: space-between;
 }
-
-.wtp__btn-padding {
-  height: 65px;
-  width: 120px;
-}
-
-.btn-primary {
+.wtp__select {
+  font-weight: bold;
   border: 5px solid black;
   box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 1);
 }
 
-.wtp__text-box p {
-  font-size: 2rem;
-  padding: 20px 20px;
+.wtp__select-wrapper {
+  align-self: flex-end;
+}
+
+.wtp__play-btn {
+  background-color: var(--pika-yellow);
+  height: 62px;
+  align-self: flex-end;
+
+  /* height: 65px; */
+}
+
+.score-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.score-card {
   text-align: center;
 }
 
-.greatball__input-box {
-  margin-top: 15px;
-  display: flex;
-  gap: 30px;
-}
-.greatball__input-wrap {
-  display: flex;
+.score {
+  font-weight: bold;
+  color: #000;
+
+  font-size: 3.5rem;
+  margin-top: -14px;
 }
 
-.greatball__bottom-bar {
+.wtp__left {
   display: flex;
-  margin: 15px 0 50px;
-  gap: 50px;
-}
-
-.greatball__input-box--input {
-  height: 65px;
-}
-
-.greatball__bottom-bar .btn-primary {
-  width: 200px;
-  text-align: center;
-  padding: 5px 0;
-}
-
-.wtp__right {
-  display: flex;
-  align-items: end;
+  justify-content: space-between;
 }
 
 .wtp__select-wrapper {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  align-items: start;
 }
+.wtp__btn-padding {
+  padding: 15px 30px;
+}
+.btn-primary {
+  text-shadow:
+    2px 2px 0 #27292a,
+    2px -2px 0 #27292a,
+    -2px 2px 0 #27292a,
+    -2px -2px 0 #27292a,
+    2px 0px 0 #27292a,
+    0px 2px 0 #27292a,
+    -2px 0px 0 #27292a,
+    0px -2px 0 #27292a;
 
-.correct-pokemon {
+  color: #f8f8f8;
+  font-weight: bolder;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 5px solid black;
+  box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 1);
+}
+.greatball__svg--wrapper {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.greatball__bg {
+  grid-area: 1/1;
+  width: 550px;
+  height: 550px;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.greatball__svg {
+  grid-area: 1/1;
+  width: 80%;
+  height: 80%;
+  aspect-ratio: 1/1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.black-overlay {
+  filter: brightness(0);
+}
+.sub-heading {
   font-family: "Archivo Black";
   font-weight: bolder;
   font-size: 2rem;
   color: var(--pika-yellow);
   -webkit-text-stroke: 2px black;
 }
+.height-20 {
+  height: 10px;
+  /* padding: 1px 0; */
+  margin-bottom: 20px;
+}
+.input-box__wrapper {
+  margin: 20px 0 10px 0;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.input-box__input {
+  border: 5px solid black;
+  box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 1);
+  font-weight: bold;
+  font-size: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("./assets/sort-down-solid-full\ \(1\).svg");
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 10%;
+  height: 62px;
+  width: 250px;
+  padding-left: 10px;
 
+  /* margin-right: 20px; */
+}
+::placeholder {
+  /* color: black; */
+}
+.submit-btn {
+  margin-left: 20px;
+  background-color: var(--submit);
+}
+.skip-btn {
+  background-color: #cf1739;
+}
+
+.bottom-bar__wrapper {
+  display: flex;
+  margin: 10px 0 10px;
+  gap: 20px;
+}
+
+.hint-btn__cry {
+  padding: 10px 14px 14px 14px;
+  background: linear-gradient(
+    150deg,
+    var(--greatball-blue) 0% 50%,
+    var(--off-white) 50% 100%
+  );
+}
+.hint-btn__type {
+  padding: 10px 15px 15px 15px;
+  background: linear-gradient(
+    -150deg,
+    var(--ultraball-grey) 0% 50%,
+    var(--off-white) 50% 100%
+  );
+}
+
+.hint-btn__cry,
+.hint-btn__type {
+  border-radius: 100%;
+  text-align: center;
+  height: 100px;
+  width: 100px;
+
+  border: 5px solid black;
+  box-shadow: 7px 7px 0px 0px #b5acac;
+}
 .hidden {
   display: none;
 }
+/* yellow, red, green, blue only those colors */
+/* try adding arrow to datalist box */
+/* cut down to two font styles not including LOGOs */
+/* remove line-height issue with logo */
+/* rework wtp container to have logo on one line, with current wtp-right on line below. add high score box.*/
+/* fix gap of submit button and input bar*/
+/* move score to top, and adjust hint pokeballs */
