@@ -6,10 +6,24 @@
     <title>Pokemon Detail</title>
     <link rel="stylesheet" href="pokedex-style.css" />
     <script src="./pokemon-detail.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/7ade9dc5a4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="detail-main main">
-      <header class="header">
+      <header>
+        <nav>
+          <a class="header__title" href="./index.html"> POKEMIA </a>
+          <a href="./whos-that-pokemon.html">Who's That Pokémon?</a>
+          <a href="./team-generator.html">Team Generator</a>
+          <a href="./pokedex.html">RotoDex</a>
+          <a href="./pokemon-quiz.html">Pokémon Quiz</a>
+        </nav>
+      </header>
+      <container class="header">
         <div class="header-wrapper">
           <div class="header-wrap">
             <a href="./index.html" class="back-btn-wrap">
@@ -28,7 +42,7 @@
             <p class="body2-fonts"></p>
           </div>
         </div>
-      </header>
+      </container>
       <div class="featured-img">
         <a href="#" class="arrow left-arrow" id="leftArrow"
           ><img src="./assets/chevron_left.svg" alt="back"
@@ -93,5 +107,6 @@
       </div>
       <img src="./assets/pokedex.svg" alt="pokedex" class="detail-bg" />
     </main>
+    <footer class="pokeball-footer"><p>Design by Kayle</p></footer>
   </body>
 </html>

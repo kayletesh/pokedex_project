@@ -3,18 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokedex_Project</title>
+    <title>RotoDex</title>
     <link rel="stylesheet" href="pokedex-style.css" />
     <script src="./pokemon.js" defer></script>
     <script src="./search.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/7ade9dc5a4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <header>
+      <nav>
+        <a class="header__title" href="./index.html"> POKEMIA </a>
+        <a href="./whos-that-pokemon.html">Who's That Pokémon?</a>
+        <a href="./team-generator.html">Team Generator</a>
+        <a href="./pokedex.html">RotoDex</a>
+        <a href="./pokemon-quiz.html">Pokémon Quiz</a>
+      </nav>
+    </header>
     <main class="main">
       <header class="header home">
         <div class="container">
           <div class="logo-wrapper">
             <img src="./assets/pokeball.svg" alt="pokeball" />
-            <h1>Pokedex</h1>
+            <h1>RotoDex</h1>
           </div>
           <div class="search-wrapper">
             <div class="search-wrap">
@@ -72,8 +86,9 @@
         <div class="container">
           <div class="list-wrapper"></div>
         </div>
-        <div id="not-found-message">Pokemon not found</div>
+        <div id="not-found-message">Pokémon not found</div>
       </section>
     </main>
+    <footer class="pokeball-footer"><p>Design by Kayle</p></footer>
   </body>
 </html>
