@@ -8,21 +8,64 @@
       src="https://kit.fontawesome.com/7ade9dc5a4.js"
       crossorigin="anonymous"
     ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Hanken+Grotesk:wght@400;500&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="home-body">
-    <header>
-      <nav>
+  <body>
+    <!-- <header>
+      <div>
+        <img src="./assets/pokeball.svg" class="black-overlay" width="20px" />
+        <a class="header__title" href="./index.html"> POKEMIA </a>
+      </div>
+      <nav class="header__nav--mobile header__nav--pc">
         <a class="header__title" href="./index.html"> POKEMIA </a>
         <a href="./whos-that-pokemon.html">Who's That Pokémon?</a>
         <a href="./team-generator.html">Team Generator</a>
         <a href="./pokedex.html">RotoDex</a>
         <a href="./pokemon-quiz.html">Pokémon Quiz</a>
       </nav>
+    </header> -->
+
+    <header class="header">
+      <div class="header__branding">
+        <img src="./assets/pokeball.svg" class="black-overlay" width="20px" />
+        <a class="header__title" href="./index.html"> POKEMIA </a>
+      </div>
+      <button class="header__menu-button">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li class="header__nav-item">
+            <a class="header__nav-link" href="">THIS IS TEST</a>
+          </li>
+          <li class="header__nav-item">
+            <a class="header__nav-link" href="">THIS IS TEST</a>
+          </li>
+          <li class="header__nav-item">
+            <a class="header__nav-link" href="">THIS IS A TEST</a>
+          </li>
+          <li class="header__nav-item">
+            <a class="header__nav-link" href="">THIS IS A TEST</a>
+          </li>
+          <li class="header__nav-item">
+            <a class="header__nav-link" href="">THIS IS A TEST</a>
+          </li>
+        </ul>
+      </nav>
     </header>
-    <main>
-      <h1>HOMEPAGE</h1>
+    <!-- <main>
+      <section class="hero">
+        <h1>Welcome Back, <span>Trainer</span></h1>
+      </section>
     </main>
-    <footer class="pokeball-footer"><p>Design by Kayle</p></footer>
+    <footer class="pokeball-footer"><p>Design by Kayle</p></footer> -->
   </body>
 </html>
