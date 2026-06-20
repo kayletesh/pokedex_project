@@ -19,47 +19,40 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- <header>
-      <div>
-        <img src="./assets/pokeball.svg" class="black-overlay" width="20px" />
-        <a class="header__title" href="./index.html"> POKEMIA </a>
-      </div>
-      <nav class="header__nav--mobile header__nav--pc">
-        <a class="header__title" href="./index.html"> POKEMIA </a>
-        <a href="./whos-that-pokemon.html">Who's That Pokémon?</a>
-        <a href="./team-generator.html">Team Generator</a>
-        <a href="./pokedex.html">RotoDex</a>
-        <a href="./pokemon-quiz.html">Pokémon Quiz</a>
-      </nav>
-    </header> -->
-
     <header class="header">
-      <div class="header__branding">
-        <img src="./assets/pokeball.svg" class="black-overlay" width="20px" />
-        <a class="header__title" href="./index.html"> POKEMIA </a>
+      <div class="container header__inner">
+        <div class="header__branding">
+          <img src="./assets/pokeball-outline.png" width="30px" />
+          <a class="header__title" href="./index.html">PokéMia</a>
+        </div>
+        <button class="header__menu-button">
+          <i class="fa-solid fa-bars fa-2xl"></i>
+        </button>
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li class="header__nav-item">
+              <a
+                class="header__nav-link header__nav-link--active"
+                href="./whos-that-pokemon.html"
+                >Who's That Pokémon?</a
+              >
+            </li>
+            <li class="header__nav-item">
+              <a class="header__nav-link" href="./team-generator.html"
+                >Team Generator</a
+              >
+            </li>
+            <li class="header__nav-item">
+              <a class="header__nav-link" href="./pokedex.html">RotoDex</a>
+            </li>
+            <li class="header__nav-item">
+              <a class="header__nav-link" href="./pokemon-quiz.html"
+                >Pokémon Quiz</a
+              >
+            </li>
+          </ul>
+        </nav>
       </div>
-      <button class="header__menu-button">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-      <nav class="header__nav">
-        <ul class="header__nav-list">
-          <li class="header__nav-item">
-            <a class="header__nav-link" href="">THIS IS TEST</a>
-          </li>
-          <li class="header__nav-item">
-            <a class="header__nav-link" href="">THIS IS TEST</a>
-          </li>
-          <li class="header__nav-item">
-            <a class="header__nav-link" href="">THIS IS A TEST</a>
-          </li>
-          <li class="header__nav-item">
-            <a class="header__nav-link" href="">THIS IS A TEST</a>
-          </li>
-          <li class="header__nav-item">
-            <a class="header__nav-link" href="">THIS IS A TEST</a>
-          </li>
-        </ul>
-      </nav>
     </header>
     <!-- <main>
       <section class="hero">
