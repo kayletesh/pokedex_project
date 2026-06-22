@@ -219,8 +219,6 @@ button {
 .header__top {
   display: flex;
   justify-content: space-between;
-  padding-bottom: var(--spacing-sm);
-  border-bottom: 3px solid #0000004e;
 }
 
 .header__title {
@@ -238,7 +236,19 @@ button {
   cursor: pointer;
 }
 
+.header__nav {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.45s ease-out;
+}
+
+/* .header:hover .header__nav {
+  max-height: 190px;
+} */
+
 .header__nav-list {
+  margin-top: var(--spacing-md);
+  border-top: 3px solid #0000004e;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -253,8 +263,8 @@ button {
 }
 
 .header__nav-link--active {
-  border-bottom: 4px solid var(--primary-fixed-dim);
   padding: 8px 8px 4px 8px;
+  font-weight: bold;
 }
 
 .header__nav-link:hover {
