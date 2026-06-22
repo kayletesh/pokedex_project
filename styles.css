@@ -241,11 +241,9 @@ button {
   overflow: hidden;
   transition: all 0.45s ease-out;
 }
-
-/* .header:hover .header__nav {
+.header__nav--height {
   max-height: 190px;
-} */
-
+}
 .header__nav-list {
   margin-top: var(--spacing-md);
   border-top: 3px solid #0000004e;
