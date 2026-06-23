@@ -336,6 +336,36 @@ button {
   background-image: url("./assets/dot-grid.webp");
   height: 100vh;
 }
+
+.homepage__hero {
+  display: flex;
+  flex-direction: column;
+}
+
+.homepage__hero h1 {
+  font-size: var(--font-size-xl);
+  padding: var(--spacing-lg);
+}
+
+.homepage__hero-bottom {
+  margin-top: var(--spacing-md);
+  background-color: var(--primary-container);
+  transform: rotate(-3deg);
+  box-shadow: 8px 4px 0px 0px rgba(0, 0, 0, 1);
+  border: 5px solid black;
+  padding: var(--spacing-md) var(--spacing-sm);
+  width: fit-content;
+}
+
+.homepage__hero p {
+  width: fit-content;
+  font-weight: bold;
+  margin: var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  box-shadow: 8px 4px 0px 0px rgba(0, 0, 0, 1);
+  border: 5px solid black;
+  font-size: var(--font-size-md);
+}
 /* xs: 0,
 sm: 576px,
 md: 768px,
