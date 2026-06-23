@@ -1,18 +1,92 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton+SC&family=Archivo+Black&family=Archivo:ital,wght@0,100..900;1,100..900&family=Lexend:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+
+@font-face {
+  font-family: "Hanson-Bold";
+  src: url("./assets/fonts/Hanson-Bold.otf") format("opentype");
+  /* font-weight: 400; */
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
-  --origin-primary: #af0020;
-  --primary: #a20b36;
-  --pika-yellow: #ffcd00;
-  --grayscale-dark: #212121;
-  --grayscale-medium: #666666;
-  --grayscale-light: #e0e0e0;
-  --grayscale-background: #efefef;
-  --grayscale-white: #ffffff;
-  --off-white: #f8f8f8;
-  --greatball-blue: #3d72e0;
-  --ultraball-grey: #434144; /* type-name variables */
+  /* new primaries */
+  /* Brand Colors */
+  --primary: #98388a;
+  --primary-container: #fe90e8;
+  --primary-fixed: #ffd7f2;
+  --primary-fixed-dim: #ffaceb;
+  --inverse-primary: #ffaceb;
+
+  --secondary: #745b00;
+  --secondary-container: #ffd24d;
+  --secondary-fixed: #ffe08d;
+  --secondary-fixed-dim: #edc23d;
+
+  --tertiary: #30666c;
+  --tertiary-container: #89bfc6;
+  --tertiary-fixed: #b5ecf3;
+  --tertiary-fixed-dim: #9ad0d7;
+
+  /* Surface */
+  --background: #f9f9f9;
+  --surface: #f9f9f9;
+  --surface-dim: #dadada;
+  --surface-bright: #f9f9f9;
+
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f3f3f3;
+  --surface-container: #eeeeee;
+  --surface-container-high: #e8e8e8;
+  --surface-container-highest: #e2e2e2;
+
+  --surface-variant: #e2e2e2;
+  --surface-tint: #98388a;
+
+  /* Text */
+  --on-primary: #ffffff;
+  --on-primary-container: #7c1e71;
+  --on-primary-fixed: #390034;
+  --on-primary-fixed-variant: #7b1d70;
+
+  --on-secondary: #ffffff;
+  --on-secondary-container: #735a00;
+  --on-secondary-fixed: #241a00;
+  --on-secondary-fixed-variant: #584400;
+
+  --on-tertiary: #ffffff;
+  --on-tertiary-container: #134f55;
+  --on-tertiary-fixed: #001f23;
+  --on-tertiary-fixed-variant: #124e54;
+
+  --on-background: #1a1c1c;
+  --on-surface: #1a1c1c;
+  --on-surface-variant: #52424d;
+
+  --inverse-surface: #2f3131;
+  --inverse-on-surface: #f1f1f1;
+
+  /* Borders */
+  --outline: #84727d;
+  --outline-variant: #d6c1cd;
+
+  /* Error */
+  --error: #ba1a1a;
+  --error-container: #ffdad6;
+  --on-error: #ffffff;
+  --on-error-container: #93000a;
+
+  /* Utility / Accent Colors */
+  --hover-text-pink: #fe90e8;
+
+  --vivid-pink: #fe90e8;
+  /* PRIMARY COLORS */
+  --electric-blue: #00d1ff;
+  --bright-yellow: #f7cb46;
+  --acid-green: #99e385;
+  --paper-white: #ffffff;
+  --ink-black: #000000;
+
   --normal: #a8a878;
   --fire: #f08030;
   --water: #6890f0;
@@ -32,7 +106,19 @@
   --steel: #b8b8d0;
   --fairy: #ee99ac;
   --submit: #40dd40;
+  /* sizing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
 }
+/* xs: 0,
+sm: 576px,
+md: 768px,
+lg: 992px,
+xl: 1200px,
+xxl: 1400px */
 .bg-normal {
   background-color: var(--normal);
 }
@@ -91,287 +177,156 @@
 html {
   font-size: 16px;
 }
+a {
+  color: unset;
+  text-decoration: none;
+}
 
+ul {
+  list-style-type: none;
+}
+
+button {
+  border: unset;
+  background: unset;
+}
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Archivo Black";
-}
-
-.container {
-  width: 100%;
-  height: 100%;
-}
-
-.pokeball-footer {
-  font-weight: bolder;
-  font-size: 16px;
-  font-style: italic;
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-/* css for whos that pokemon game */
-body {
-  background-color: var(--off-white);
-}
-header {
-  background-color: var(--primary);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0 5px 5px 0;
-  width: 100%;
-}
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background: transparent;
-  background-image: url("./assets/sort-down-solid-full\ \(1\).svg");
-  background-size: 40px;
-  background-repeat: no-repeat;
-  background-position-x: 100%;
-  background-position-y: 10%;
-  height: 62px;
-  width: 200px;
-  padding-left: 5px;
-
-  margin-right: 20px;
-}
-
-.header__title {
-  font-family: "Archivo black";
-  font-size: 35px;
-  font-weight: bolder;
-  color: var(--pika-yellow);
-  -webkit-text-stroke: 2px black;
-  text-decoration: none;
-}
-nav {
-  max-width: 1440px;
-  align-items: flex-end;
-  display: flex;
-  margin: 0 auto;
-  gap: 15px;
-}
-
-nav div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-nav p {
-  color: var(--off-white);
-}
-nav a {
-  font-weight: bold;
-  text-align: center;
-  font-size: 1rem;
-  color: var(--off-white);
-  /* add hover effect */
-  text-decoration: none;
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.wtp {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 40px;
-}
-.wtp__title {
-  margin: 10px 0;
-  font-weight: bolder;
-  font-size: 2.5rem;
-}
-.wtp__title span {
-  color: var(--primary);
-}
-.wtp__top-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-.wtp__select {
-  font-weight: bold;
-  border: 5px solid black;
-  box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 1);
-}
-
-.wtp__select-wrapper {
-  align-self: flex-end;
-}
-
-.wtp__play-btn {
-  background-color: var(--pika-yellow);
-  height: 62px;
-  align-self: flex-end;
-
-  /* height: 65px; */
-}
-
-.score-wrapper {
-  display: flex;
-  gap: 20px;
-}
-
-.score-card {
-  text-align: center;
-}
-
-.score {
-  font-weight: bold;
-  color: #000;
-
-  font-size: 3.5rem;
-  margin-top: -14px;
-}
-
-.wtp__left {
-  display: flex;
-  justify-content: space-between;
-}
-
-.wtp__select-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-.wtp__btn-padding {
-  padding: 15px 30px;
-}
-.btn-primary {
-  text-shadow:
-    2px 2px 0 #27292a,
-    2px -2px 0 #27292a,
-    -2px 2px 0 #27292a,
-    -2px -2px 0 #27292a,
-    2px 0px 0 #27292a,
-    0px 2px 0 #27292a,
-    -2px 0px 0 #27292a,
-    0px -2px 0 #27292a;
-
-  color: #f8f8f8;
-  font-weight: bolder;
-  font-size: 1rem;
-  font-weight: bold;
-  border: 5px solid black;
-  box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 1);
-}
-.greatball__svg--wrapper {
-  position: relative;
-  display: grid;
-  place-items: center;
-}
-.greatball__bg {
-  grid-area: 1/1;
-  width: 550px;
-  height: 550px;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-.greatball__svg {
-  grid-area: 1/1;
-  width: 80%;
-  height: 80%;
-  aspect-ratio: 1/1;
-  user-select: none;
-  -webkit-user-drag: none;
 }
 .black-overlay {
   filter: brightness(0);
 }
-.sub-heading {
-  font-family: "Archivo Black";
-  font-weight: bolder;
+.container {
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+  /* border-bottom: 6px solid black; */
+  /* box-shadow: 8px 4px 0px 0px rgba(0, 0, 0, 1); */
+  box-shadow: 8px 4px 15px 0px rgba(0, 0, 0, 1);
+}
+
+/* header style */
+.header__inner {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.header__top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__title {
   font-size: 2rem;
-  color: var(--pika-yellow);
-  -webkit-text-stroke: 2px black;
+  font-family: "Hanson-Bold";
 }
-.height-20 {
-  height: 10px;
-  /* padding: 1px 0; */
-  margin-bottom: 20px;
-}
-.input-box__wrapper {
-  margin: 20px 0 10px 0;
+
+.header__branding {
   display: flex;
-  gap: 20px;
+  gap: var(--spacing-sm);
   align-items: center;
-  justify-content: center;
-}
-.input-box__input {
-  border: 5px solid black;
-  box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 1);
-  font-weight: bold;
-  font-size: 1rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background: transparent;
-  background-image: url("./assets/sort-down-solid-full\ \(1\).svg");
-  background-size: 40px;
-  background-repeat: no-repeat;
-  background-position-x: 100%;
-  background-position-y: 10%;
-  height: 62px;
-  width: 250px;
-  padding-left: 10px;
-
-  /* margin-right: 20px; */
-}
-::placeholder {
-  /* color: black; */
-}
-.submit-btn {
-  margin-left: 20px;
-  background-color: var(--submit);
-}
-.skip-btn {
-  background-color: #cf1739;
 }
 
-.bottom-bar__wrapper {
+.header__menu-button {
+  cursor: pointer;
+}
+
+.header__nav {
+  max-height: 0;
+  overflow: hidden;
+}
+
+@media (width <= 991px) {
+  .header__nav {
+    transition: max-height 0.45s ease-out;
+  }
+}
+
+.header__nav--expanded {
+  max-height: 190px;
+}
+
+.header__nav-list {
+  margin-top: var(--spacing-md);
+  border-top: 3px solid #0000004e;
   display: flex;
-  margin: 10px 0 10px;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  width: 100%;
+}
+.header__nav-link {
+  font-family: "Sora";
+  transition: all 0.35s ease-out;
+  padding: var(--spacing-sm);
 }
 
-.hint-btn__cry {
-  padding: 10px 14px 14px 14px;
-  background: linear-gradient(
-    150deg,
-    var(--greatball-blue) 0% 50%,
-    var(--off-white) 50% 100%
-  );
-}
-.hint-btn__type {
-  padding: 10px 15px 15px 15px;
-  background: linear-gradient(
-    -150deg,
-    var(--ultraball-grey) 0% 50%,
-    var(--off-white) 50% 100%
-  );
+.header__nav-link--active {
+  padding: 8px 8px 4px 8px;
+  font-weight: bold;
 }
 
-.hint-btn__cry,
-.hint-btn__type {
-  border-radius: 100%;
-  text-align: center;
-  height: 100px;
-  width: 100px;
+.header__nav-link:hover {
+  background-color: var(--primary-fixed-dim);
+}
 
-  border: 5px solid black;
-  box-shadow: 7px 7px 0px 0px #b5acac;
+@media (width >= 768px) {
+  .container {
+    max-width: 768px;
+  }
+
+  .header__inner {
+    margin-inline: auto;
+  }
 }
-.hidden {
-  display: none;
+
+@media (width >= 992px) {
+  .container {
+    max-width: 992px;
+  }
+
+  .header__inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .header__menu-button {
+    display: none;
+  }
+
+  .header__nav {
+    max-height: none;
+    transition: none;
+  }
+
+  .header__nav-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-top: 0;
+    border-top: 0;
+  }
 }
-/* yellow, red, green, blue only those colors */
-/* try adding arrow to datalist box */
-/* cut down to two font styles not including LOGOs */
-/* remove line-height issue with logo */
-/* rework wtp container to have logo on one line, with current wtp-right on line below. add high score box.*/
-/* fix gap of submit button and input bar*/
-/* move score to top, and adjust hint pokeballs */
+@media (width >= 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+@media (width >= 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+/* xs: 0,
+sm: 576px,
+md: 768px,
+lg: 992px,
+xl: 1200px,
+xxl: 1400px */

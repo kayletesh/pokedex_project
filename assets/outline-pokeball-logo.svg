@@ -1,0 +1,38 @@
+<svg width="69" height="69" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_84_204)">
+<path d="M55.7634 21.5194C62.791 33.4042 58.8535 48.7358 46.9686 55.7634C35.0838 62.791 19.7522 58.8535 12.7246 46.9686C5.69701 35.0838 9.63456 19.7522 21.5194 12.7246C33.4042 5.69701 48.7358 9.63456 55.7634 21.5194Z" fill="url(#paint0_linear_84_204)" shape-rendering="crispEdges"/>
+<path d="M23.0463 15.3069C33.505 9.12265 46.9968 12.5877 53.1811 23.0463C59.3654 33.505 55.9003 46.9968 45.4417 53.1811C34.983 59.3654 21.4912 55.9003 15.3069 45.4417C9.12265 34.983 12.5877 21.4912 23.0463 15.3069Z" stroke="black" stroke-width="6" shape-rendering="crispEdges"/>
+</g>
+<g filter="url(#filter1_d_84_204)">
+<circle cx="34.2445" cy="34.2406" r="10" transform="rotate(-30.5962 34.2445 34.2406)" fill="#D9D9D9"/>
+<circle cx="34.2445" cy="34.2406" r="7.5" transform="rotate(-30.5962 34.2445 34.2406)" stroke="black" stroke-width="5"/>
+</g>
+<defs>
+<filter id="filter0_d_84_204" x="5.24219" y="9.2383" width="58.0078" height="58.0078" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_84_204"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_84_204" result="shape"/>
+</filter>
+<filter id="filter1_d_84_204" x="20.2422" y="24.2383" width="28" height="28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_84_204"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_84_204" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_84_204" x1="21.5194" y1="12.7246" x2="46.9686" y2="55.7634" gradientUnits="userSpaceOnUse">
+<stop offset="0.45" stop-opacity="0"/>
+<stop offset="0.45"/>
+<stop offset="0.55"/>
+<stop offset="0.55" stop-color="#D9D9D9" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
