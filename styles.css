@@ -334,7 +334,6 @@ button {
 /* homepage__hero */
 .homepage__main {
   background-image: url("./assets/dot-grid.webp");
-  height: 100vh;
 }
 
 .homepage__hero {
@@ -366,6 +365,20 @@ button {
   border: 5px solid black;
   font-size: var(--font-size-md);
 }
+
+/* modules */
+
+.modules__grid {
+  display: grid;
+  padding: var(--spacing-lg);
+}
+
+.modules__box {
+  box-shadow: 8px 4px 0px 0px rgba(0, 0, 0, 1);
+  border: 5px solid black;
+  padding: var(--spacing-md);
+}
+
 /* xs: 0,
 sm: 576px,
 md: 768px,
