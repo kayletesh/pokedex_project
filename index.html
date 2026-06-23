@@ -24,14 +24,36 @@
       <div class="container header__inner">
         <div class="header__top">
           <div class="header__branding">
-            <img src="./assets/pokeball-outline.png" width="35px" />
-            <a class="header__title" href="./index.html">PokéMia</a>
+            <img
+              src="./assets/pokeball-outline.png"
+              width="35px"
+              alt=""
+              aria-hidden="true"
+            />
+            <a
+              class="header__title"
+              href="./index.html"
+              aria-label="PokéMia home"
+            >
+              PokéMia
+            </a>
           </div>
-          <button class="header__menu-button" id="header-menu-btn">
-            <i class="fa-solid fa-bars fa-2xl"></i>
+          <button
+            class="header__menu-button"
+            id="header-menu-btn"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="header-nav"
+          >
+            <i class="fa-solid fa-bars fa-2xl" aria-hidden="true"></i>
           </button>
         </div>
-        <nav class="header__nav" id="header-nav">
+        <nav
+          class="header__nav"
+          id="header-nav"
+          aria-label="Navigation menu"
+          inert
+        >
           <ul class="header__nav-list">
             <li class="header__nav-item">
               <a

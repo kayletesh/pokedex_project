@@ -239,11 +239,18 @@ button {
 .header__nav {
   max-height: 0;
   overflow: hidden;
-  transition: all 0.45s ease-out;
 }
-.header__nav--height {
+
+@media (width <= 991px) {
+  .header__nav {
+    transition: max-height 0.45s ease-out;
+  }
+}
+
+.header__nav--expanded {
   max-height: 190px;
 }
+
 .header__nav-list {
   margin-top: var(--spacing-md);
   border-top: 3px solid #0000004e;
@@ -273,6 +280,7 @@ button {
   .container {
     max-width: 768px;
   }
+
   .header__inner {
     margin-inline: auto;
   }
@@ -283,16 +291,27 @@ button {
     max-width: 992px;
   }
 
-  .header__nav {
-    display: flex;
+  .header__inner {
+    flex-direction: row;
+    justify-content: space-between;
   }
+
   .header__menu-button {
     display: none;
   }
+
+  .header__nav {
+    max-height: none;
+    transition: none;
+  }
+
   .header__nav-list {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: var(--spacing-md);
+    margin-top: 0;
+    border-top: 0;
   }
 }
 @media (width >= 1200px) {
