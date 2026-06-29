@@ -379,9 +379,10 @@ h2 {
   background-color: var(--secondary-container);
 }
 .modules__team img {
-  align-self: center;
-  width: 350px;
-  margin: var(--spacing-md) 0;
+  align-self: flex-end;
+  width: 150px;
+  justify-self: end;
+  margin: var(--spacing-md) 0 -16px 0;
 }
 
 .modules__rotodex {
