@@ -314,11 +314,13 @@ h2 {
   box-shadow: 8px 4px 0px 0px var(--inverse-surface);
   border: 5px solid black;
 }
+
 .homepage__hero-img {
   display: block;
   margin-inline: auto;
   width: 400px;
 }
+
 /* #endregion homepage__main */
 
 /* modules */
@@ -430,7 +432,11 @@ xxl: 1400px */
   .container {
     max-width: 768px;
   }
-
+  .homepage__hero-img {
+    display: block;
+    margin-inline: auto;
+    width: 500px;
+  }
   .header__inner {
     margin-inline: auto;
   }
@@ -439,6 +445,16 @@ xxl: 1400px */
 @media (width >= 992px) {
   .container {
     max-width: 992px;
+  }
+  .hero__picture {
+    display: flex;
+    width: 100%;
+  }
+  .homepage__hero-img {
+    width: 500px;
+  }
+  .modules__grid {
+    display: grid;
   }
   .homepage__hero {
     display: flex;

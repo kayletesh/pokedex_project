@@ -44,9 +44,10 @@ const closeNav = (state) => {
 const handleLoad = () => {
   if (isDesktop.matches) {
     headerDropdown.inert = false;
-    console.log(true);
+
+    // console.log(true);
   } else {
-    console.log(false);
+    // console.log(false);
   }
 };
 
