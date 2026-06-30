@@ -293,10 +293,10 @@ h2 {
 /* #endregion header */
 /* #region homepage__hero */
 
-.homepage__hero-bottom {
+.homepage__hero-trainer {
   margin-top: 20px;
   background-color: var(--primary-container);
-  transform: rotate(-7deg);
+  transform: rotate(-5deg);
   box-shadow: 8px 4px 0px 0px var(--inverse-surface);
   border: 5px solid black;
   padding: var(--spacing-md) var(--spacing-md);
@@ -329,7 +329,6 @@ h2 {
   grid-template-rows: repeat(4, 1fr);
   gap: var(--spacing-sm);
 }
-
 .module__card {
   margin: var(--spacing-xs);
   padding: var(--spacing-lg);
@@ -340,7 +339,8 @@ h2 {
   border: 5px solid black;
   box-shadow: 8px 8px 0 0 var(--inverse-surface);
 }
-
+/* #endregion modules__casing*/
+/* #region module__wtp*/
 .module__wtp p,
 .module__wtp h2 {
   margin-bottom: var(--spacing-md);
@@ -382,7 +382,7 @@ h2 {
   height: 200px;
   margin-right: -26px;
 }
-
+/* #endregion module__wtp */
 .module__quiz {
   background-color: var(--electric-blue);
   grid-column-start: 1;
