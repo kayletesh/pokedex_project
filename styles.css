@@ -353,7 +353,9 @@ h2 {
   border: 5px solid black;
   font-weight: bold;
 }
-
+.module__wtp button:hover {
+  background-color: var(--secondary-container);
+}
 .module__wtp-blackbox {
   width: fit-content;
   background-color: #000000;
