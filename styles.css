@@ -326,6 +326,7 @@ h2 {
 /* #endregion homepage__hero */
 
 /* #region modules__casing*/
+
 .module__grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -333,6 +334,7 @@ h2 {
   gap: var(--spacing-sm);
 }
 .module__card {
+  transition: transform 0.3s ease-out;
   margin: var(--spacing-xs);
   padding: var(--spacing-lg);
   display: flex;
@@ -340,6 +342,10 @@ h2 {
   border: 5px solid black;
   box-shadow: 8px 8px 0 0 var(--inverse-surface);
 }
+.module__card:hover {
+  transform: translate(-2px, -2px);
+}
+
 /* #endregion modules__casing*/
 /* #region wtp*/
 
@@ -348,12 +354,21 @@ h2 {
   background-color: var(--button-back);
   padding: var(--spacing-sm) var(--spacing-md);
   width: fit-content;
-
+  transition: all 0.4s ease-out;
   box-shadow: 4px 4px 0px 0px var(--wtp-shadow);
   border: 5px solid black;
   font-weight: bold;
 }
-.module__wtp button:hover {
+
+.module__wtp:hover img {
+  display: flex;
+  align-self: flex-end;
+  margin-right: -26px;
+
+  rotate: -25deg;
+  filter: none;
+}
+.module__wtp:hover button {
   background-color: var(--secondary-container);
 }
 .module__wtp-blackbox {
@@ -376,6 +391,7 @@ h2 {
   align-self: flex-end;
   height: 200px;
   margin-right: -26px;
+  transition: all 0.4s ease-out;
 }
 /* #endregion module__wtp */
 /* #region quiz */
@@ -401,6 +417,10 @@ h2 {
   padding: var(--spacing-md) var(--spacing-md);
   transform: rotate(3deg);
   margin-top: var(--spacing-lg);
+  transition: all 0.3s;
+}
+.module__quiz:hover span {
+  rotate: -5deg;
 }
 
 /* #endregion module__quiz */
@@ -414,6 +434,10 @@ h2 {
   display: flex;
   align-self: flex-end;
   width: 100px;
+  transition: all 0.4s ease-out;
+}
+.module__team:hover img {
+  width: 150px;
 }
 /* #endregion module_team */
 /* #region rotodex */
@@ -430,8 +454,13 @@ h2 {
 
 .module__rotodex img {
   align-self: flex-end;
+  transition: all 0.4s ease-out;
   width: 200px;
   transform: rotatey(180deg);
+}
+
+.module__rotodex:hover img {
+  rotate: -25deg;
 }
 /* #endregion */
 
