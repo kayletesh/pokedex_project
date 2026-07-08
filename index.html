@@ -79,23 +79,94 @@
         </nav>
       </div>
     </header>
-    <main class="homepage__main">
-      <div class="container">
-        <section class="homepage__hero">
-          <h1 class="homepage__hero">
+    <main class="container homepage__main">
+      <section class="homepage__hero">
+        <div class="homepage__hero-wrapper">
+          <h1>
             Welcome <br />
             Back,
-            <span class="homepage__hero-bottom">Trainer!</span>
+            <span class="homepage__hero-trainer">Trainer!</span>
           </h1>
           <p>
-            Do you have what it takes to be a Pokemon Master?<br />
-            Test your knowledge, build your team, and use our <br />Roto-dex to
-            plan out your next adventure!
+            Do you have what it takes to be a Pokemon Master? Test your
+            knowledge, build your team, and use our Roto-dex to plan out your
+            next adventure!
           </p>
-        </section>
-      </div>
+        </div>
+        <picture class="hero__picture">
+          <source
+            srcset="./assets/pokeball-six-mobile.png"
+            alt="six pokeballs"
+            media="(width >= 992px)"
+          />
+          <img
+            src="./assets/pokeball-six-desktop.png"
+            alt="six pokeballs"
+            class="homepage__hero-img"
+          />
+        </picture>
+      </section>
+      <section class="module__grid">
+        <a href="./whos-that-pokemon.html" class="module__card module__wtp">
+          <p class="module__wtp-blackbox">High Score : #</p>
+          <h2>Who's That <span>Pokémon?</span></h2>
+          <p>
+            Professor Oak needs <b>your</b> help to identify these pokemon!<br />
+            Can you name them all?
+          </p>
+          <button>
+            Play Now
+            <i class="fa-solid fa-arrow-right fa-xl" style="color: #000000"></i>
+          </button>
+          <img
+            class="black-overlay"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other//official-artwork/52.png"
+          />
+        </a>
+        <a href="./pokemon-quiz.html" class="module__card module__quiz">
+          <p class="module__quiz-smalltext">TRIVIA</p>
+          <h2>Pokémon Quiz</h2>
+          <p>
+            Take the ultimate trainer challenge, and <b>prove</b> you've got
+            what it takes to be a <b>POKEMON MASTER</b>!!
+          </p>
+          <span
+            class="material-symbols-outlined text-ink-black"
+            style="font-size: 48px"
+            >quiz</span
+          >
+        </a>
+        <a href="./team-generator.html" class="module__card module__team">
+          <h2>Team Generator</h2>
+          <p>
+            Want to set out on a new adventure? Let us pick your next party!
+          </p>
+
+          <img src="./assets/sixball.svg" alt="six pokeballs in a row" />
+        </a>
+        <a href="./pokedex.html" class="module__card module__rotodex">
+          <div class="module__rotodex-top">
+            <h2>RotoDex</h2>
+            <p>
+              Browse a complete database of <b> items </b>, <b>moves</b>, and
+              <b>pokemon</b>. An all-inclusive library to help plan out your
+              next adventure!
+            </p>
+          </div>
+
+          <img
+            class="rotodex-img"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other//official-artwork/479.png"
+          />
+        </a>
+      </section>
     </main>
-    <footer class="pokeball-footer"><p>Design by Kayle</p></footer>
-    -->
+    <footer class="footer">
+      <p>
+        <a href="https://pokeapi.co/docs/v2#pokemon">Powered by Pokeapi.co </a>
+      </p>
+      <a href="https://github.com/kayletesh"> github</a>
+      <p>Design by<span> Kayle</span></p>
+    </footer>
   </body>
 </html>
