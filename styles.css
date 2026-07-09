@@ -415,12 +415,12 @@ h2 {
   box-shadow: 8px 4px 0px 0px var(--quiz-shadow);
   border: 5px solid black;
   padding: var(--spacing-md) var(--spacing-md);
-  transform: rotate(3deg);
+  transform: rotate(4deg);
   margin-top: var(--spacing-lg);
   transition: all 0.3s;
 }
 .module__quiz:hover span {
-  rotate: -5deg;
+  rotate: -6deg;
 }
 
 /* #endregion module__quiz */
@@ -434,7 +434,7 @@ h2 {
   display: flex;
   align-self: flex-end;
   width: 100px;
-  transition: all 0.4s ease-out;
+  transition: all 0.3s ease-out;
 }
 .module__team:hover img {
   width: 150px;
@@ -454,7 +454,7 @@ h2 {
 
 .module__rotodex img {
   align-self: flex-end;
-  transition: all 0.3s ease-out;
+  transition: all 0.35s ease-out;
   width: 180px;
   margin-right: 30px;
   transform: rotatey(180deg);
