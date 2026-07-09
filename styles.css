@@ -454,9 +454,11 @@ h2 {
 
 .module__rotodex img {
   align-self: flex-end;
-  transition: all 0.4s ease-out;
-  width: 200px;
+  transition: all 0.3s ease-out;
+  width: 180px;
+  margin-right: 30px;
   transform: rotatey(180deg);
+  rotate: -50deg;
 }
 
 .module__rotodex:hover img {
