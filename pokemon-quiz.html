@@ -12,18 +12,84 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <a class="header__title" href="./index.html"> POKEMIA </a>
-        <a href="./whos-that-pokemon.html">Who's That Pokémon?</a>
-        <a href="./team-generator.html">Team Generator</a>
-        <a href="./pokedex.html">RotoDex</a>
-        <a href="./pokemon-quiz.html">Pokémon Quiz</a>
-      </nav>
+    <header class="header">
+      <div class="container header__inner">
+        <div class="header__top">
+          <div class="header__branding">
+            <img
+              src="./assets/pokeball-outline.png"
+              width="35px"
+              alt=""
+              aria-hidden="true"
+            />
+            <a
+              class="header__title"
+              href="./index.html"
+              aria-label="PokéMia home"
+            >
+              PokéMia
+            </a>
+          </div>
+          <button
+            class="header__menu-button"
+            id="header-menu-btn"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="header-nav"
+          >
+            <i class="fa-solid fa-bars fa-2xl" aria-hidden="true"></i>
+          </button>
+        </div>
+        <nav
+          class="header__nav"
+          id="header-nav"
+          aria-label="Navigation menu"
+          inert
+        >
+          <ul class="header__nav-list">
+            <li class="header__nav-item">
+              <a
+                class="header__nav-link header__nav-link--active"
+                href="./whos-that-pokemon.html"
+                >Who's That Pokémon?</a
+              >
+            </li>
+            <li class="header__nav-item">
+              <a class="header__nav-link" href="./team-generator.html"
+                >Team Generator</a
+              >
+            </li>
+            <li class="header__nav-item">
+              <a class="header__nav-link" href="./pokedex.html">RotoDex</a>
+            </li>
+            <li class="header__nav-item">
+              <a class="header__nav-link" href="./pokemon-quiz.html"
+                >Pokémon Quiz</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
-    <main>
-      <h1>Test Your Knowledge</h1>
+    <main class="container">
+      <section class="quiz__hero">
+        <h1>
+          Welcome to the
+          <span class="quiz__hero-trainer">Trainer Academy!</span>
+        </h1>
+        <p>
+          Are you ready to take on the ultimate pokemon challenge? Only those
+          who ace the <b>Ultimate Challenge</b> can claim the rank of
+          <b>POKEMON MASTER!</b>
+        </p>
+      </section>
     </main>
-    <footer class="pokeball-footer"><p>Design by Kayle</p></footer>
+    <footer class="footer">
+      <p>
+        <a href="https://pokeapi.co/docs/v2#pokemon">Powered by Pokeapi.co</a>
+      </p>
+      <a href="https://github.com/kayletesh">github</a>
+      <p>Design by<span> Kayle</span></p>
+    </footer>
   </body>
 </html>
