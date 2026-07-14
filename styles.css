@@ -114,6 +114,7 @@
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
+  --spacing-2xl: 64px;
 
   --font-size-xs: 14px;
   --font-size-sm: 16px;
@@ -346,8 +347,7 @@ h2 {
 
 /* #region grid__casing*/
 
-.grid__homepage,
-.grid__quiz {
+.grid__homepage {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(5, auto);
@@ -364,8 +364,9 @@ h2 {
   flex-direction: column;
 }
 
-.card__homepage:hover {
-  transform: translate(-2px, -2px);
+.card__homepage:hover,
+.card__quiz:hover {
+  transform: translate(-4px, -4px);
 }
 
 /* #endregion grid__casing*/
@@ -488,11 +489,17 @@ h2 {
 /* #endregion */
 /* #endregion homepage */
 /* #region quizpage */
+.card__quiz:focus,
+.card__quiz:active {
+  transform: translate(10px, 10px);
+  box-shadow: none;
+}
 .card__quiz {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xl);
   align-items: flex-end;
+  margin-bottom: var(--margin-10);
 }
 
 .card__top {
@@ -500,6 +507,7 @@ h2 {
   justify-content: space-between;
   width: 100%;
 }
+
 .card__quiz p {
   font-size: 20px;
 }
@@ -541,6 +549,12 @@ xxl: 1400px */
     transition: max-height 0.45s ease-out;
   }
 }
+@media (width >=425px) {
+  .card__quiz {
+    max-width: 400px;
+    margin-inline: auto;
+  }
+}
 @media (width >= 768px) {
   .container {
     max-width: 768px;
@@ -570,6 +584,17 @@ xxl: 1400px */
   }
   .module__quiz-smalltext {
     max-width: 74px;
+  }
+  .grid__quiz {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: var(--spacing-md) var(--spacing-lg);
+  }
+  .card__quiz {
+    min-width: 100%;
+    justify-content: space-between;
+    aspect-ratio: 2/1;
   }
 }
 @media (width >= 992px) {
@@ -655,6 +680,13 @@ xxl: 1400px */
   }
   .module__team {
     min-width: 400px;
+  }
+  .grid__quiz {
+    width: 75%;
+    margin-inline: auto;
+  }
+  .card__quiz {
+    max-width: 525px;
   }
 }
 @media (width >= 1400px) {
