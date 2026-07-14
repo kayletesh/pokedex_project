@@ -449,8 +449,6 @@ h2 {
 .module__team {
   background-color: var(--secondary-container);
   gap: var(--spacing-md);
-  min-width: 300px;
-  min-height: 300px;
 }
 .module__team img {
   margin-top: var(--spacing-lg);
@@ -634,7 +632,10 @@ xxl: 1400px */
   .module__wtp-blackbox {
     max-width: 118px;
   }
-
+  .module__team {
+    min-width: 300px;
+    min-height: 300px;
+  }
   .module__rotodex {
     grid-column-start: 2;
     grid-column-end: 4;
@@ -657,7 +658,6 @@ xxl: 1400px */
   }
   .module__team {
     min-width: 400px;
-    min-height: 300px;
   }
 }
 @media (width >= 1400px) {
@@ -666,6 +666,5 @@ xxl: 1400px */
   }
   .module__team {
     min-width: 500px;
-    min-height: 300px;
   }
 }
