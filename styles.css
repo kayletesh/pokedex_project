@@ -490,21 +490,20 @@ h2 {
 /* #region quizpage */
 .card__quiz {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
   gap: var(--spacing-xl);
   align-items: flex-end;
+}
+
+.card__top {
+  display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 .card__quiz p {
   font-size: 20px;
 }
 
-/* .quiz__level-box {
-  background-color: var(--ink-black);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  color: var(--paper-white);
-} */
 .card__quiz--green {
   background-color: var(--acid-green);
 }
@@ -573,7 +572,6 @@ xxl: 1400px */
     max-width: 74px;
   }
 }
-
 @media (width >= 992px) {
   .container {
     max-width: 992px;
@@ -651,7 +649,6 @@ xxl: 1400px */
     justify-content: flex-start;
   }
 }
-
 @media (width >= 1200px) {
   .container {
     max-width: 1200px;
