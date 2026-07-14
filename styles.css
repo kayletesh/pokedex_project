@@ -368,6 +368,10 @@ h2 {
 .card__quiz:hover {
   transform: translate(-4px, -4px);
 }
+.card__homepage:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
 
 /* #endregion grid__casing*/
 /* #region wtp*/
@@ -489,7 +493,7 @@ h2 {
 /* #endregion */
 /* #endregion homepage */
 /* #region quizpage */
-.card__quiz:focus,
+/* .card__quiz:focus, */
 .card__quiz:active {
   transform: translate(10px, 10px);
   box-shadow: none;
