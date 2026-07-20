@@ -49,17 +49,54 @@ const easyQuiz = document.querySelector("#quiz-card-green");
 const mediumQuiz = document.querySelector("#quiz-card-blue");
 const hardQuiz = document.querySelector("#quiz-card-yellow");
 const masterQuiz = document.querySelector("#quiz-card-pink");
-
+const quizContainerActive = document.querySelector("#quiz-container-active");
+const quizContainerResults = document.querySelector("#quiz-container-results");
+const resetBtn = document.querySelector("#reset-button");
 easyQuiz.addEventListener("click", () => {
-  console.log("green");
+  quizStart("easy");
 });
 mediumQuiz.addEventListener("click", () => {
-  console.log("blue");
+  quizStart("medium");
 });
 hardQuiz.addEventListener("click", () => {
-  console.log("yellow");
+  quizStart("hard");
 });
 masterQuiz.addEventListener("click", () => {
-  console.log("pink");
+  quizStart("master");
 });
+resetBtn.addEventListener("click", () => {
+  toggleHidden();
+});
+function quizStart(type) {
+  console.log(type);
+  toggleHidden();
+}
+
+function quizResults() {
+  quizContainerResults.classList.toggle("hidden");
+}
+function toggleHidden() {
+  const quizHero = document.querySelector("#quiz-hero");
+  quizHero.classList.toggle("hidden");
+  easyQuiz.classList.toggle("hidden");
+  mediumQuiz.classList.toggle("hidden");
+  hardQuiz.classList.toggle("hidden");
+  masterQuiz.classList.toggle("hidden");
+  quizContainerActive.classList.toggle("hidden");
+  resetBtn.classList.toggle("hidden");
+}
+
+const answerTrue = document.querySelector("#answer-true");
+const answerFalse = document.querySelector("#answer-false");
+answerTrue.addEventListener("click", () => {
+  console.log("true");
+});
+answerFalse.addEventListener("click", () => {
+  console.log("false");
+});
+
 // #endregion quiz-active
+
+// create if statement to determine which card has been clicked,
+// since each will run quizStart and quizResults.
+// statement should
