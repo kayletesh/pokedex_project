@@ -539,9 +539,8 @@ h2 {
   justify-content: space-between;
 }
 .current-quiz__easy {
-  height: fit-content;
   background-color: var(--acid-green);
-  box-shadow: 6px 6px 0 0 var(--ink-black);
+  box-shadow: 5px 5px 0 0 #8aa184;
   padding: var(--spacing-md) var(--spacing-lg);
 }
 
@@ -553,18 +552,20 @@ h2 {
 }
 .current-quiz__number {
   background-color: var(--paper-white);
-  rotate: -3deg;
-  border: 5px solid var(--ink-black);
-  padding: var(--spacing-xl) var(--spacing-md);
-  font-size: var(--font-size-lg);
-  width: fit-content;
-  box-shadow: 6px 6px 0 0 var(--ink-black);
+  text-align: center;
+  padding: var(--spacing-md) var(--spacing-md);
 }
 .current-quiz__question {
   margin-bottom: var(--margin-20);
 }
+.true-false {
+  display: flex;
+  justify-content: space-around;
+}
+
 .answer-true,
-.answer-false {
+.answer-false,
+.reset-btn {
   background-color: var(--paper-white);
   border: 3px solid var(--ink-black);
   text-align: center;
@@ -574,10 +575,7 @@ h2 {
   box-shadow: 6px 6px 0 0 var(--inverse-surface);
 }
 .reset-btn {
-  background-color: var(--paper-white);
   display: block;
-  border: 5px solid var(--ink-black);
-  padding: var(--spacing-sm) var(--spacing-xl);
   margin-inline: auto;
 }
 .hidden {
