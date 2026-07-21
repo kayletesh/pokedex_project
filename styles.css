@@ -588,7 +588,7 @@ input {
 .quiz__btn-box {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 .reset-btn {
@@ -671,6 +671,13 @@ xxl: 1400px */
     min-width: 100%;
     justify-content: space-between;
     aspect-ratio: 2/1;
+  }
+  .answer-true,
+  .answer-false {
+    width: 350px;
+  }
+  .quiz-btn {
+    padding: var(--spacing-lg) var(--spacing-2xl);
   }
 }
 @media (width >= 992px) {
