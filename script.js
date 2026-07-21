@@ -108,7 +108,7 @@ function quizStart(type) {
     console.log(randomQuestion.options);
     console.log(optionA);
     console.log(optionC);
-    console.log(`${randomQuestion.correct} is correct! `);
+    console.log(`${randomQuestion.correct} is correct!`);
 
     // log options
     // log a random option
