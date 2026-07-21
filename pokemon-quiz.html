@@ -84,31 +84,38 @@
         </p>
       </section>
       <section
-        class="quiz__container--active hidden"
+        class="current-quiz__container hidden"
         id="quiz-container-active"
       >
         <div class="current-quiz__hero">
           <h2 class="current-quiz__number" id="question-number">01 / 10</h2>
-          <h2 class="current-quiz__easy" id="easy">Easy</h2>
+          <h2 class="current-quiz__level" id="level">Easy</h2>
         </div>
         <div class="divider"></div>
 
-        <div class="current-quiz__question-container">
-          <h2 class="current-quiz__question" id="current-quiz-question">
-            True or False? Bulbasaur was the first ever pokemon.
-          </h2>
-        </div>
-        <form class="true-false">
-          <option class="answer-true" id="answer-true" value="true">
+        <h2 class="current-quiz__question" id="current-quiz-question">
+          True or False? Bulbasaur was the first ever pokemon.
+        </h2>
+        <fieldset class="current-quiz__answers">
+          <input type="radio" id="choice-one" name="true" value="true" />
+          <label class="answer-true quiz-btn" for="choice-one">True</label>
+          <input type="radio" id="choice-two" name="false" value="false" />
+          <label class="answer-false quiz-btn" for="choice-two">False</label>
+        </fieldset>
+        <!-- <option class="answer-true" id="answer-true" value="true">
             True
           </option>
           <option class="answer-false" id="answer-false" value="false">
             False
-          </option>
-        </form>
-        <button>skip</button>
-        <button class="reset-btn hidden" id="reset-button">Reset</button
-        ><button>submit</button>
+          </option> -->
+
+        <div class="quiz__btn-box">
+          <button class="quiz-btn">skip</button>
+          <button class="quiz-btn">submit</button>
+        </div>
+        <button class="quiz-btn reset-btn hidden" id="reset-button">
+          Reset
+        </button>
       </section>
       <section
         class="quiz__container--results hidden"
