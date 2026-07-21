@@ -1,3 +1,4 @@
+import { questions } from "./data/questions.js";
 const isDesktop = window.matchMedia("(width >= 992px)");
 // #region header
 const headerDropdown = document.querySelector("#header-nav");
@@ -68,7 +69,23 @@ resetBtn.addEventListener("click", () => {
   toggleHidden();
 });
 function quizStart(type) {
-  console.log(type);
+  if (type === "easy") {
+    const randomQuestion =
+      questions[Math.floor(Math.random() * questions.length)];
+
+    console.log(randomQuestion);
+
+    console.log("you chose easy");
+  } else if (type === "medium") {
+    console.log("you chose medium");
+  } else if (type === "hard") {
+    console.log("you chose hard");
+  } else if (type === "master") {
+    console.log("You chose master");
+  } else {
+    console.log("error::quiz not found");
+  }
+
   toggleHidden();
 }
 
@@ -86,14 +103,14 @@ function toggleHidden() {
   resetBtn.classList.toggle("hidden");
 }
 
-const answerTrue = document.querySelector("#answer-true");
-const answerFalse = document.querySelector("#answer-false");
-answerTrue.addEventListener("click", () => {
-  console.log("true");
-});
-answerFalse.addEventListener("click", () => {
-  console.log("false");
-});
+// const answerTrue = document.querySelector("#answer-true");
+// const answerFalse = document.querySelector("#answer-false");
+// answerTrue.addEventListener("click", () => {
+//   console.log("true");
+// });
+// answerFalse.addEventListener("click", () => {
+//   console.log("false");
+// });
 
 // #endregion quiz-active
 
