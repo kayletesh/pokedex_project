@@ -580,8 +580,7 @@ input {
   appearance: none;
   border: none;
 }
-.answer-true,
-.answer-false {
+.answer-buttons {
   width: 250px;
   margin-inline: auto;
 }

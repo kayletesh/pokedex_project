@@ -69,11 +69,17 @@ resetBtn.addEventListener("click", () => {
   toggleHidden();
 });
 function quizStart(type) {
+  const currentQuestion = document.querySelector("#current-quiz-question");
   if (type === "easy") {
     const randomQuestion =
       questions[Math.floor(Math.random() * questions.length)];
+    const randomAnswers =
+      randomQuestion.options[
+        Math.floor(Math.random() * randomQuestion.options.length)
+      ];
+    currentQuestion.innerHTML = randomQuestion.question;
 
-    console.log(randomQuestion);
+    console.log(randomAnswers);
 
     console.log("you chose easy");
   } else if (type === "medium") {
