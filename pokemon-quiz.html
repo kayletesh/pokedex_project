@@ -72,7 +72,7 @@
       </div>
     </header>
     <main class="container">
-      <section class="quiz__hero">
+      <section class="quiz__hero" id="quiz-hero">
         <h1>
           <span class="quiz__hero-top">Welcome to</span>
           <span class="quiz__hero-trainer">The Trainer Academy!</span>
@@ -83,17 +83,57 @@
           <b>POKEMON MASTER!</b>
         </p>
       </section>
-      <section class="grid__quiz">
-        <a href="" class="card card__quiz card__quiz--green">
+      <section
+        class="current-quiz__container hidden"
+        id="quiz-container-active"
+      >
+        <div class="current-quiz__hero">
+          <h2 class="current-quiz__number" id="question-number">01 / 10</h2>
+          <h2 class="current-quiz__level" id="level">Easy</h2>
+        </div>
+        <div class="divider"></div>
+
+        <h2 class="current-quiz__question" id="current-quiz-question">
+          True or False? Bulbasaur was the first ever pokemon.
+        </h2>
+        <fieldset class="current-quiz__answers">
+          <input type="radio" id="choice-one" name="true" value="true" />
+          <label class="answer-true quiz-btn" for="choice-one">True</label>
+          <input type="radio" id="choice-two" name="false" value="false" />
+          <label class="answer-false quiz-btn" for="choice-two">False</label>
+        </fieldset>
+        <!-- <option class="answer-true" id="answer-true" value="true">
+            True
+          </option>
+          <option class="answer-false" id="answer-false" value="false">
+            False
+          </option> -->
+
+        <div class="quiz__btn-box">
+          <button class="quiz-btn">skip</button>
+          <button class="quiz-btn">submit</button>
+        </div>
+        <button class="quiz-btn reset-btn hidden" id="reset-button">
+          Reset
+        </button>
+      </section>
+      <section
+        class="quiz__container--results hidden"
+        id="quiz-container-results"
+      >
+        <div class="quiz__page--results">I'm results</div>
+      </section>
+      <section class="grid__quiz" id="quiz-grid">
+        <div class="card card__quiz card__quiz--green" id="quiz-card-green">
           <div class="card__top">
             <h2 class="quiz__level-box">Easy</h2>
             <i class="fa-solid fa-infinity fa-2xl" style="color: #000000"></i>
           </div>
           <div class="card__bottom">
             <p><b>10</b> Questions</p>
-          </div></a
-        >
-        <a href="" class="card card__quiz card__quiz--blue">
+          </div>
+        </div>
+        <div class="card card__quiz card__quiz--blue" id="quiz-card-blue">
           <div class="card__top">
             <h2 class="quiz__level-box">Medium</h2>
             <i class="fa-regular fa-clock fa-2xl" style="color: #000000"></i>
@@ -101,8 +141,12 @@
           <div class="card__bottom">
             <p><b>20</b> Questions</p>
           </div>
-        </a>
-        <a href="" class="card card__quiz card__quiz--yellow">
+        </div>
+        <div
+          href=""
+          class="card card__quiz card__quiz--yellow"
+          id="quiz-card-yellow"
+        >
           <div class="card__top">
             <h2 class="quiz__level-box">Hard</h2>
             <i class="fa-regular fa-clock fa-2xl" style="color: #000000"></i>
@@ -110,8 +154,12 @@
           <div class="card__bottom">
             <p><b>30</b> Questions</p>
           </div>
-        </a>
-        <a href="" class="card card__quiz card__quiz--pink">
+        </div>
+        <div
+          href=""
+          class="card card__quiz card__quiz--pink"
+          id="quiz-card-pink"
+        >
           <div class="card__top">
             <h2 class="quiz__level-box">Master Challenge</h2>
             <i class="fa-regular fa-clock fa-2xl" style="color: #000000"></i>
@@ -119,7 +167,7 @@
           <div class="card__bottom">
             <p><b>100</b> Questions</p>
           </div>
-        </a>
+        </div>
       </section>
     </main>
     <footer class="footer">
