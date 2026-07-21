@@ -70,16 +70,56 @@ resetBtn.addEventListener("click", () => {
 });
 function quizStart(type) {
   const currentQuestion = document.querySelector("#current-quiz-question");
+  const answerA = document.querySelector("#answer-a");
+  const answerB = document.querySelector("#answer-b");
+  const answerC = document.querySelector("#answer-c");
+  const answerD = document.querySelector("#answer-d");
+
   if (type === "easy") {
     const randomQuestion =
       questions[Math.floor(Math.random() * questions.length)];
-    const randomAnswers =
-      randomQuestion.options[
-        Math.floor(Math.random() * randomQuestion.options.length)
-      ];
-    currentQuestion.innerHTML = randomQuestion.question;
+    const remaining = [...randomQuestion.options];
 
-    console.log(randomAnswers);
+    const optionA = remaining.splice(
+      Math.floor(Math.random() * remaining.length),
+      1,
+    )[0];
+
+    const optionB = remaining.splice(
+      Math.floor(Math.random() * remaining.length),
+      1,
+    )[0];
+
+    const optionC = remaining.splice(
+      Math.floor(Math.random() * remaining.length),
+      1,
+    )[0];
+
+    const optionD = remaining.splice(
+      Math.floor(Math.random() * remaining.length),
+      1,
+    )[0];
+
+    answerA.innerHTML = optionA;
+    answerB.innerHTML = optionB;
+    answerC.innerHTML = optionC;
+    answerD.innerHTML = optionD;
+    currentQuestion.innerHTML = randomQuestion.question;
+    console.log(randomQuestion.options);
+    console.log(optionA);
+    console.log(optionC);
+    console.log(`${randomQuestion.correct} is correct! `);
+
+    // log options
+    // log a random option
+    // log the new list of options without previous one
+
+    // you know the value of the item you need to remove and the index of the item
+
+    // find random item in array
+    // remove item from array
+    // // HOW DO U REMOVE AN ITEM FROM AN ARRAY?
+    // find another random item
 
     console.log("you chose easy");
   } else if (type === "medium") {
